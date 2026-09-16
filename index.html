@@ -21,6 +21,9 @@ section.index li:first-child { border-top:none; }
 section.index a { color:var(--ink); text-decoration:none; font-weight:600; }
 section.index a:active { color:var(--accent); }
 .src { display:block; font-size:.8rem; color:#8a7d6b; font-weight:400; }
+#filters { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 8px; }
+#filters button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:8px 14px; font-size:.9rem; cursor:pointer; }
+#filters button.active { background:var(--accent); color:#fff; border-color:var(--accent); }
 .cathead { font-size:1.25rem; color:var(--accent); margin:26px 4px 6px; }
 article.recipe { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:12px 0; }
 .rtitle { margin:0 0 4px; font-size:1.2rem; }
@@ -37,50 +40,200 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <body id="top">
 <header>
 <h1>Family Recipe Book</h1>
-<p>36 favorite recipes, all in one place</p>
+<p>106 favorite recipes, all in one place</p>
 </header>
 <div class="wrap">
 <input id="search" type="search" placeholder="Search recipes..." autocomplete="off">
+<div id="filters">
+<button data-tag="easy">Easy</button>
+<button data-tag="crunch-time">Crunch Time</button>
+<button data-tag="different-times">Eating at Different Times</button>
+<button data-tag="together">Everyone Together</button>
+</div>
 <div id="toc">
-<section class="index" data-cat><h2>Breakfast</h2><ul><li data-title="apple almond quinoa with maple sausage"><a href="http://iowagirleats.com/2012/10/30/apple-almond-quinoa-with-maple-sausage/" target="_blank" rel="noopener">Apple Almond Quinoa with Maple Sausage</a><span class="src">iowagirleats.com</span></li>
-<li data-title="coconut almond breakfast quinoa"><a href="http://www.ourbestbites.com/2013/06/coconut-almond-breakfast-quinoa/" target="_blank" rel="noopener">Coconut Almond Breakfast Quinoa</a><span class="src">ourbestbites.com</span></li>
-<li data-title="fluffy pancakes"><a href="https://www.allrecipes.com/recipe/162760/fluffy-pancakes" target="_blank" rel="noopener">Fluffy Pancakes</a><span class="src">allrecipes.com</span></li></ul></section>
-<section class="index" data-cat><h2>Appetizers</h2><ul><li data-title="greek dip platter"><a href="http://iowagirleats.com/2012/07/09/no-heat-required-greek-dip-platter/" target="_blank" rel="noopener">Greek Dip Platter</a><span class="src">iowagirleats.com</span></li>
-<li data-title="mini ham and cheese quinoa cups"><a href="http://iowagirleats.com/2012/02/16/mini-ham-cheese-quinoa-cups/" target="_blank" rel="noopener">Mini Ham and Cheese Quinoa Cups</a><span class="src">iowagirleats.com</span></li></ul></section>
-<section class="index" data-cat><h2>Soups</h2><ul><li data-title="creamy taco soup"><a href="#creamy-taco-soup">Creamy Taco Soup</a><span class="src">written out below</span></li>
-<li data-title="taco soup"><a href="#taco-soup">Taco Soup</a><span class="src">written out below</span></li>
-<li data-title="creamy corn chowder"><a href="http://www.ourbestbites.com/2008/09/creamy-corn-chowder/" target="_blank" rel="noopener">Creamy Corn Chowder</a><span class="src">ourbestbites.com</span></li></ul></section>
-<section class="index" data-cat><h2>Main Courses</h2><ul><li data-title="beef stroganoff"><a href="#beef-stroganoff">Beef Stroganoff</a><span class="src">written out below</span></li>
-<li data-title="bruschetta chicken bake"><a href="#bruschetta-chicken-bake">Bruschetta Chicken Bake</a><span class="src">written out below</span></li>
-<li data-title="grilled lime coconut chicken with coconut rice"><a href="#grilled-lime-coconut-chicken">Grilled Lime Coconut Chicken with Coconut Rice</a><span class="src">written out below</span></li>
-<li data-title="italian beef"><a href="#italian-beef">Italian Beef</a><span class="src">written out below</span></li>
-<li data-title="italian sausage sheet pan dinner"><a href="#italian-sausage-sheet-pan">Italian Sausage Sheet Pan Dinner</a><span class="src">written out below</span></li>
-<li data-title="korean ground beef and rice bowls"><a href="#korean-ground-beef-bowls">Korean Ground Beef and Rice Bowls</a><span class="src">written out below</span></li>
-<li data-title="pesto chicken"><a href="#pesto-chicken">Pesto Chicken</a><span class="src">written out below</span></li>
-<li data-title="shoyu chicken"><a href="#shoyu-chicken">Shoyu Chicken</a><span class="src">written out below</span></li>
-<li data-title="teriyaki bowls"><a href="#teriyaki-bowls">Teriyaki Bowls</a><span class="src">written out below</span></li>
-<li data-title="chicken with lime sauce"><a href="http://www.myrecipes.com/recipe/chicken-with-lime-sauce-10000001173801/" target="_blank" rel="noopener">Chicken with Lime Sauce</a><span class="src">myrecipes.com</span></li>
-<li data-title="easy lasagna"><a href="https://web.archive.org/web/20121229122050/http://purposefulfood.com/easy-lasagna/" target="_blank" rel="noopener">Easy Lasagna</a><span class="src">purposefulfood.com (archived)</span></li>
-<li data-title="pernil asado"><a href="https://www.washingtonpost.com/recipes/pernil-asado/16266/" target="_blank" rel="noopener">Pernil Asado</a><span class="src">washingtonpost.com</span></li>
-<li data-title="pesto baked chicken"><a href="https://web.archive.org/web/20190913192955/http://www.thesisterscafe.com/2011/02/pesto-baked-chicken" target="_blank" rel="noopener">Pesto Baked Chicken</a><span class="src">thesisterscafe.com (archived)</span></li>
-<li data-title="pesto ranch crock pot chicken"><a href="http://picky-palate.com/2012/09/20/pesto-ranch-crock-pot-chicken-thighs/" target="_blank" rel="noopener">Pesto Ranch Crock Pot Chicken</a><span class="src">picky-palate.com</span></li>
-<li data-title="shrimp pasta with oven-dried tomatoes"><a href="http://www.annies-eats.com/2011/10/05/shrimp-pasta-with-oven-dried-tomatoes/" target="_blank" rel="noopener">Shrimp Pasta with Oven-Dried Tomatoes</a><span class="src">annies-eats.com</span></li>
-<li data-title="southwest stuffed bell peppers"><a href="http://www.ourbestbites.com/2011/01/southwest-stuffed-bell-peppers/" target="_blank" rel="noopener">Southwest Stuffed Bell Peppers</a><span class="src">ourbestbites.com</span></li>
-<li data-title="thai peanut chicken quinoa bowls"><a href="http://iowagirleats.com/2014/01/06/thai-peanut-chicken-quinoa-bowls/" target="_blank" rel="noopener">Thai Peanut Chicken Quinoa Bowls</a><span class="src">iowagirleats.com</span></li></ul></section>
-<section class="index" data-cat><h2>Sides</h2><ul><li data-title="little quinoa patties"><a href="http://www.melskitchencafe.com/2012/10/little-quinoa-patties.html" target="_blank" rel="noopener">Little Quinoa Patties</a><span class="src">melskitchencafe.com</span></li>
-<li data-title="soul sweet taters"><a href="http://thepioneerwoman.com/cooking/2010/10/soul-sweet-taters-step-by-step-recipe/" target="_blank" rel="noopener">Soul Sweet Taters</a><span class="src">thepioneerwoman.com</span></li></ul></section>
-<section class="index" data-cat><h2>Breads</h2><ul><li data-title="old fashioned white bread (bread machine)"><a href="#old-fashioned-white-bread">Old Fashioned White Bread (Bread Machine)</a><span class="src">written out below</span></li>
-<li data-title="bacon cheddar scones"><a href="https://www.annies-eats.com/2010/04/08/bacon-cheddar-scones/" target="_blank" rel="noopener">Bacon Cheddar Scones</a><span class="src">annies-eats.com</span></li>
-<li data-title="french bread rolls"><a href="https://www.melskitchencafe.com/french-bread-rolls/" target="_blank" rel="noopener">French Bread Rolls</a><span class="src">melskitchencafe.com</span></li>
-<li data-title="honey jalapeno cornbread"><a href="http://iowagirleats.com/2012/12/17/honey-jalapeno-cornbread/" target="_blank" rel="noopener">Honey Jalapeno Cornbread</a><span class="src">iowagirleats.com</span></li>
-<li data-title="perfect pizza crust"><a href="http://www.annies-eats.com/2008/08/15/perfect-pizza-crust/" target="_blank" rel="noopener">Perfect Pizza Crust</a><span class="src">annies-eats.com</span></li></ul></section>
-<section class="index" data-cat><h2>Desserts</h2><ul><li data-title="key lime cheesecake"><a href="http://allrecipes.com/recipe/7441/key-lime-cheesecake-i/" target="_blank" rel="noopener">Key Lime Cheesecake</a><span class="src">allrecipes.com</span></li>
-<li data-title="no-bake chewy granola bars"><a href="http://www.mykitchenescapades.com/2014/03/no-bake-chewy-granola-bars-revised.html" target="_blank" rel="noopener">No-Bake Chewy Granola Bars</a><span class="src">mykitchenescapades.com</span></li>
-<li data-title="raspberry sauce"><a href="http://allrecipes.com/recipe/142149/raspberry-sauce/" target="_blank" rel="noopener">Raspberry Sauce</a><span class="src">allrecipes.com</span></li>
-<li data-title="tim riggins brownies (mississippi mud brownies)"><a href="https://ourbestbites.com/mississippi-mud-brownies/" target="_blank" rel="noopener">Tim Riggins Brownies (Mississippi Mud Brownies)</a><span class="src">ourbestbites.com</span></li></ul></section>
+<section class="index" data-cat><h2>Breakfast</h2><ul><li data-title="crepes with whipped cream" data-tags="together"><a href="#crepes">Crepes with Whipped Cream</a><span class="src">from Kimberly - written out below</span></li>
+<li data-title="crockpot blueberry breakfast dish" data-tags="different-times"><a href="#crockpot-blueberry-breakfast-dish">Crockpot Blueberry Breakfast Dish</a><span class="src">from Marva - written out below</span></li>
+<li data-title="refrigerator bran muffins (lion house)" data-tags="together"><a href="#refrigerator-bran-muffins">Refrigerator Bran Muffins (Lion House)</a><span class="src">from Celene - written out below</span></li>
+<li data-title="spiced apple pancakes with apple cider syrup" data-tags="together"><a href="#spiced-apple-pancakes">Spiced Apple Pancakes with Apple Cider Syrup</a><span class="src">from Audrey - written out below</span></li>
+<li data-title="apple almond quinoa with maple sausage" data-tags=""><a href="http://iowagirleats.com/2012/10/30/apple-almond-quinoa-with-maple-sausage/" target="_blank" rel="noopener">Apple Almond Quinoa with Maple Sausage</a><span class="src">iowagirleats.com</span></li>
+<li data-title="coconut almond breakfast quinoa" data-tags=""><a href="http://www.ourbestbites.com/2013/06/coconut-almond-breakfast-quinoa/" target="_blank" rel="noopener">Coconut Almond Breakfast Quinoa</a><span class="src">ourbestbites.com</span></li>
+<li data-title="fluffy pancakes" data-tags="together"><a href="https://www.allrecipes.com/recipe/162760/fluffy-pancakes" target="_blank" rel="noopener">Fluffy Pancakes</a><span class="src">allrecipes.com</span></li>
+<li data-title="the best ever waffles" data-tags="together"><a href="http://www.food.com/recipe/the-best-ever-waffles-31750" target="_blank" rel="noopener">The Best Ever Waffles</a><span class="src">from Nathan - food.com</span></li></ul></section>
+<section class="index" data-cat><h2>Appetizers</h2><ul><li data-title="3-minute dip" data-tags="crunch-time easy together"><a href="#three-minute-dip">3-minute dip</a><span class="src">from Emily - written out below</span></li>
+<li data-title="cucumber sandwiches" data-tags="easy together"><a href="#cucumber-sandwiches">Cucumber Sandwiches</a><span class="src">from Michelle - written out below</span></li>
+<li data-title="pork egg rolls" data-tags="different-times together"><a href="#pork-egg-rolls">Pork Egg Rolls</a><span class="src">written out below</span></li>
+<li data-title="greek dip platter" data-tags="easy together"><a href="http://iowagirleats.com/2012/07/09/no-heat-required-greek-dip-platter/" target="_blank" rel="noopener">Greek Dip Platter</a><span class="src">iowagirleats.com</span></li>
+<li data-title="mini ham and cheese quinoa cups" data-tags="together"><a href="http://iowagirleats.com/2012/02/16/mini-ham-cheese-quinoa-cups/" target="_blank" rel="noopener">Mini Ham and Cheese Quinoa Cups</a><span class="src">iowagirleats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Soups</h2><ul><li data-title="chili" data-tags="different-times easy together"><a href="#jenn-chili">Chili</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="creamy taco soup" data-tags="crunch-time different-times together"><a href="#creamy-taco-soup">Creamy Taco Soup</a><span class="src">written out below</span></li>
+<li data-title="easy mexican soup" data-tags="crunch-time different-times easy"><a href="#easy-mexican-soup">Easy Mexican Soup</a><span class="src">from Brenda - written out below</span></li>
+<li data-title="ranch chicken bean soup" data-tags="different-times easy together"><a href="#ranch-chicken-bean-soup">Ranch Chicken Bean Soup</a><span class="src">from Tere - written out below</span></li>
+<li data-title="red lentil soup" data-tags="different-times easy"><a href="#red-lentil-soup">Red Lentil Soup</a><span class="src">from Shelley - written out below</span></li>
+<li data-title="taco soup" data-tags="different-times easy together"><a href="#taco-soup">Taco Soup</a><span class="src">written out below</span></li>
+<li data-title="boilermaker tailgate chili" data-tags="different-times together"><a href="https://www.allrecipes.com/recipe/78299/boilermaker-tailgate-chili/" target="_blank" rel="noopener">Boilermaker Tailgate Chili</a><span class="src">from Abby - allrecipes.com</span></li>
+<li data-title="creamy corn chowder" data-tags=""><a href="http://www.ourbestbites.com/2008/09/creamy-corn-chowder/" target="_blank" rel="noopener">Creamy Corn Chowder</a><span class="src">ourbestbites.com</span></li></ul></section>
+<section class="index" data-cat><h2>Main Courses</h2><ul><li data-title="baked chicken taquitos" data-tags="together"><a href="#baked-chicken-taquitos">Baked Chicken Taquitos</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="beef stroganoff" data-tags="crunch-time easy"><a href="#beef-stroganoff">Beef Stroganoff</a><span class="src">written out below</span></li>
+<li data-title="boston butt with garlic and orange" data-tags="together"><a href="#boston-butt">Boston Butt with Garlic and Orange</a><span class="src">from Chaille - written out below</span></li>
+<li data-title="bruschetta chicken bake" data-tags="crunch-time easy"><a href="#bruschetta-chicken-bake">Bruschetta Chicken Bake</a><span class="src">written out below</span></li>
+<li data-title="chicken broccoli casserole" data-tags="together"><a href="#chicken-broccoli-casserole">Chicken Broccoli Casserole</a><span class="src">from Vivien - written out below</span></li>
+<li data-title="chicken italiano" data-tags="different-times easy"><a href="#chicken-italiano">Chicken Italiano</a><span class="src">from Mary - written out below</span></li>
+<li data-title="chicken poppyseed" data-tags="together"><a href="#chicken-poppyseed">Chicken Poppyseed</a><span class="src">from Brenda - written out below</span></li>
+<li data-title="chicken stir fry" data-tags="crunch-time"><a href="#chicken-stir-fry">Chicken Stir Fry</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="crock pot salsa chicken" data-tags="different-times easy together"><a href="#crock-pot-salsa-chicken">Crock Pot Salsa Chicken</a><span class="src">from Sara - written out below</span></li>
+<li data-title="curry chicken with rice" data-tags="easy"><a href="#curry-chicken-rice">Curry Chicken with Rice</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="fiesta chicken in a slow cooker" data-tags="different-times together"><a href="#fiesta-chicken-slow-cooker">Fiesta Chicken in a Slow Cooker</a><span class="src">from Mary - written out below</span></li>
+<li data-title="flank steak marinade" data-tags="easy"><a href="#flank-steak-marinade">Flank Steak Marinade</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="french dip sandwiches" data-tags="different-times together"><a href="#french-dip-sandwiches">French Dip Sandwiches</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="greek chicken and potatoes" data-tags="easy"><a href="#greek-chicken-potatoes">Greek Chicken and Potatoes</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="grilled lime coconut chicken with coconut rice" data-tags=""><a href="#grilled-lime-coconut-chicken">Grilled Lime Coconut Chicken with Coconut Rice</a><span class="src">written out below</span></li>
+<li data-title="grilled spicy honey chicken" data-tags="crunch-time"><a href="#grilled-spicy-honey-chicken">Grilled Spicy Honey Chicken</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="guiltless alfredo sauce" data-tags="crunch-time easy"><a href="#guiltless-alfredo-sauce">Guiltless Alfredo Sauce</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="ham fried rice" data-tags="crunch-time"><a href="#ham-fried-rice">Ham Fried Rice</a><span class="src">from Emily - written out below</span></li>
+<li data-title="harvey&#x27;s turkey brine" data-tags="together"><a href="#harveys-turkey-brine">Harvey&#x27;s Turkey Brine</a><span class="src">from Harvey - written out below</span></li>
+<li data-title="italian beef" data-tags="different-times together"><a href="#italian-beef">Italian Beef</a><span class="src">written out below</span></li>
+<li data-title="italian sausage sheet pan dinner" data-tags="crunch-time easy"><a href="#italian-sausage-sheet-pan">Italian Sausage Sheet Pan Dinner</a><span class="src">written out below</span></li>
+<li data-title="korean ground beef and rice bowls" data-tags="crunch-time easy"><a href="#korean-ground-beef-bowls">Korean Ground Beef and Rice Bowls</a><span class="src">written out below</span></li>
+<li data-title="lemon pepper tilapia" data-tags="crunch-time easy"><a href="#lemon-pepper-tilapia">Lemon Pepper Tilapia</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="marvelous mini meatloaves" data-tags="together"><a href="#marvelous-mini-meatloaves">Marvelous Mini Meatloaves</a><span class="src">from Vivien - written out below</span></li>
+<li data-title="mike&#x27;s meatloaf" data-tags="together"><a href="#mikes-meatloaf">Mike&#x27;s Meatloaf</a><span class="src">from Karen - written out below</span></li>
+<li data-title="mitt&#x27;s meat loaf cakes" data-tags="together"><a href="#mitts-meat-loaf-cakes">Mitt&#x27;s Meat Loaf Cakes</a><span class="src">written out below</span></li>
+<li data-title="orange chicken" data-tags="together"><a href="#orange-chicken">Orange Chicken</a><span class="src">from Amanda - written out below</span></li>
+<li data-title="pesto chicken" data-tags="easy"><a href="#pesto-chicken">Pesto Chicken</a><span class="src">written out below</span></li>
+<li data-title="pesto salmon" data-tags="crunch-time easy"><a href="#pesto-salmon">Pesto Salmon</a><span class="src">from Sara - written out below</span></li>
+<li data-title="rosemary balsamic pork tenderloin" data-tags="easy"><a href="#rosemary-balsamic-pork-tenderloin">Rosemary Balsamic Pork Tenderloin</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="sheet pan chicken fajitas" data-tags="crunch-time easy"><a href="#sheet-pan-chicken-fajitas">Sheet Pan Chicken Fajitas</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="shoyu chicken" data-tags="different-times easy"><a href="#shoyu-chicken">Shoyu Chicken</a><span class="src">written out below</span></li>
+<li data-title="sloppy joes" data-tags="crunch-time easy together"><a href="#sloppy-joes">Sloppy Joes</a><span class="src">from Kirsten - written out below</span></li>
+<li data-title="southwest chicken salad" data-tags="crunch-time"><a href="#southwest-chicken-salad">Southwest Chicken Salad</a><span class="src">from Rebecca - written out below</span></li>
+<li data-title="spaghetti and meatballs" data-tags="together"><a href="#spaghetti-and-meatballs">Spaghetti and Meatballs</a><span class="src">from Mary - written out below</span></li>
+<li data-title="spicy baked chicken" data-tags="crunch-time easy"><a href="#spicy-baked-chicken">Spicy Baked Chicken</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="spicy chicken pasta" data-tags="crunch-time easy"><a href="#spicy-chicken-pasta">Spicy Chicken Pasta</a><span class="src">from Sara - written out below</span></li>
+<li data-title="tater tot casserole" data-tags="together"><a href="#tater-tot-casserole">Tater Tot Casserole</a><span class="src">from Koni - written out below</span></li>
+<li data-title="teriyaki bowls" data-tags="crunch-time easy"><a href="#teriyaki-bowls">Teriyaki Bowls</a><span class="src">written out below</span></li>
+<li data-title="tiger chicken" data-tags=""><a href="#tiger-chicken">Tiger Chicken</a><span class="src">from Monica - written out below</span></li>
+<li data-title="tostadas with pork tinga and queso fresco" data-tags="together"><a href="#tostadas-pork-tinga">Tostadas with Pork Tinga and Queso Fresco</a><span class="src">from Staci - written out below</span></li>
+<li data-title="waikiki meatballs" data-tags="together"><a href="#waikiki-meatballs">Waikiki Meatballs</a><span class="src">from Jenn - written out below</span></li>
+<li data-title="winter chicken salad" data-tags="easy"><a href="#winter-chicken-salad">Winter Chicken Salad</a><span class="src">from Tere - written out below</span></li>
+<li data-title="asian fish tacos" data-tags=""><a href="http://thepeeledmango.blogspot.com/2013/03/asian-fish-tacos.html" target="_blank" rel="noopener">Asian Fish Tacos</a><span class="src">from Kristen - thepeeledmango.blogspot.com</span></li>
+<li data-title="chicken with lime sauce" data-tags=""><a href="http://www.myrecipes.com/recipe/chicken-with-lime-sauce-10000001173801/" target="_blank" rel="noopener">Chicken with Lime Sauce</a><span class="src">myrecipes.com</span></li>
+<li data-title="easy lasagna" data-tags="together"><a href="https://web.archive.org/web/20121229122050/http://purposefulfood.com/easy-lasagna/" target="_blank" rel="noopener">Easy Lasagna</a><span class="src">purposefulfood.com (archived)</span></li>
+<li data-title="gordon ramsay&#x27;s smoky pulled pork" data-tags=""><a href="https://gordonramsayrecipes.uk/gordon-ramsay-pulled-pork-recipe/" target="_blank" rel="noopener">Gordon Ramsay&#x27;s Smoky Pulled Pork</a><span class="src">from Nathan - gordonramsayrecipes.uk</span></li>
+<li data-title="pernil asado" data-tags=""><a href="https://www.washingtonpost.com/recipes/pernil-asado/16266/" target="_blank" rel="noopener">Pernil Asado</a><span class="src">from Chris - washingtonpost.com</span></li>
+<li data-title="pesto baked chicken" data-tags=""><a href="https://web.archive.org/web/20190913192955/http://www.thesisterscafe.com/2011/02/pesto-baked-chicken" target="_blank" rel="noopener">Pesto Baked Chicken</a><span class="src">thesisterscafe.com (archived)</span></li>
+<li data-title="pesto ranch crock pot chicken" data-tags="different-times"><a href="http://picky-palate.com/2012/09/20/pesto-ranch-crock-pot-chicken-thighs/" target="_blank" rel="noopener">Pesto Ranch Crock Pot Chicken</a><span class="src">picky-palate.com</span></li>
+<li data-title="shrimp pasta with oven-dried tomatoes" data-tags=""><a href="http://www.annies-eats.com/2011/10/05/shrimp-pasta-with-oven-dried-tomatoes/" target="_blank" rel="noopener">Shrimp Pasta with Oven-Dried Tomatoes</a><span class="src">annies-eats.com</span></li>
+<li data-title="southwest stuffed bell peppers" data-tags=""><a href="http://www.ourbestbites.com/2011/01/southwest-stuffed-bell-peppers/" target="_blank" rel="noopener">Southwest Stuffed Bell Peppers</a><span class="src">ourbestbites.com</span></li>
+<li data-title="thai peanut chicken quinoa bowls" data-tags=""><a href="http://iowagirleats.com/2014/01/06/thai-peanut-chicken-quinoa-bowls/" target="_blank" rel="noopener">Thai Peanut Chicken Quinoa Bowls</a><span class="src">iowagirleats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Sides</h2><ul><li data-title="blueberry bbq sauce" data-tags="easy"><a href="#blueberry-bbq-sauce">Blueberry BBQ Sauce</a><span class="src">from Nathan - written out below</span></li>
+<li data-title="light and creamy toasted sesame asian dressing" data-tags="crunch-time easy"><a href="#toasted-sesame-asian-dressing">Light and Creamy Toasted Sesame Asian Dressing</a><span class="src">from Erin - written out below</span></li>
+<li data-title="mediterranean quinoa salad" data-tags="easy together"><a href="#mediterranean-quinoa-salad">Mediterranean Quinoa Salad</a><span class="src">from Rachel - written out below</span></li>
+<li data-title="little quinoa patties" data-tags=""><a href="http://www.melskitchencafe.com/2012/10/little-quinoa-patties.html" target="_blank" rel="noopener">Little Quinoa Patties</a><span class="src">melskitchencafe.com</span></li>
+<li data-title="soul sweet taters" data-tags="together"><a href="http://thepioneerwoman.com/cooking/2010/10/soul-sweet-taters-step-by-step-recipe/" target="_blank" rel="noopener">Soul Sweet Taters</a><span class="src">thepioneerwoman.com</span></li></ul></section>
+<section class="index" data-cat><h2>Breads</h2><ul><li data-title="best ever banana bread" data-tags="easy"><a href="#best-ever-banana-bread">Best Ever Banana Bread</a><span class="src">from Lisa - written out below</span></li>
+<li data-title="chocolate zucchini bread" data-tags="easy"><a href="#chocolate-zucchini-bread">Chocolate Zucchini Bread</a><span class="src">from Caytlin - written out below</span></li>
+<li data-title="old fashioned white bread (bread machine)" data-tags=""><a href="#old-fashioned-white-bread">Old Fashioned White Bread (Bread Machine)</a><span class="src">written out below</span></li>
+<li data-title="bacon cheddar scones" data-tags=""><a href="https://www.annies-eats.com/2010/04/08/bacon-cheddar-scones/" target="_blank" rel="noopener">Bacon Cheddar Scones</a><span class="src">annies-eats.com</span></li>
+<li data-title="french bread rolls" data-tags=""><a href="https://www.melskitchencafe.com/french-bread-rolls/" target="_blank" rel="noopener">French Bread Rolls</a><span class="src">melskitchencafe.com</span></li>
+<li data-title="honey jalapeno cornbread" data-tags=""><a href="http://iowagirleats.com/2012/12/17/honey-jalapeno-cornbread/" target="_blank" rel="noopener">Honey Jalapeno Cornbread</a><span class="src">iowagirleats.com</span></li>
+<li data-title="perfect pizza crust" data-tags=""><a href="http://www.annies-eats.com/2008/08/15/perfect-pizza-crust/" target="_blank" rel="noopener">Perfect Pizza Crust</a><span class="src">annies-eats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Desserts</h2><ul><li data-title="andes mint cookies" data-tags="together"><a href="#andes-mint-cookies">Andes Mint Cookies</a><span class="src">from Rachael - written out below</span></li>
+<li data-title="baked chocolate pudding (gluten free!)" data-tags="easy"><a href="#baked-chocolate-pudding">Baked Chocolate Pudding (Gluten free!)</a><span class="src">from Tessa - written out below</span></li>
+<li data-title="carrot cake with cream cheese frosting" data-tags="together"><a href="#carrot-cake">Carrot Cake with Cream Cheese Frosting</a><span class="src">from Lisa - written out below</span></li>
+<li data-title="cookie salad" data-tags="easy together"><a href="#cookie-salad">Cookie Salad</a><span class="src">from Janeen - written out below</span></li>
+<li data-title="harvey&#x27;s classic southern pecan pie" data-tags="together"><a href="#harveys-pecan-pie">Harvey&#x27;s Classic Southern Pecan Pie</a><span class="src">from Harvey - written out below</span></li>
+<li data-title="hot fudge sauce" data-tags="crunch-time easy"><a href="#hot-fudge-sauce">Hot Fudge Sauce</a><span class="src">from Holly - written out below</span></li>
+<li data-title="ice cream in a bag" data-tags="together"><a href="#ice-cream-in-a-bag">Ice Cream in a Bag</a><span class="src">from Kate - written out below</span></li>
+<li data-title="katie&#x27;s cake" data-tags="together"><a href="#katies-cake">Katie&#x27;s Cake</a><span class="src">from Shilo - written out below</span></li>
+<li data-title="lemonade cake" data-tags="together"><a href="#lemonade-cake">Lemonade Cake</a><span class="src">from Kate - written out below</span></li>
+<li data-title="my perfected chocolate chip cookies" data-tags="together"><a href="#perfected-chocolate-chip-cookies">My Perfected Chocolate Chip Cookies</a><span class="src">from Heather - written out below</span></li>
+<li data-title="peanut butter bars" data-tags="easy together"><a href="#peanut-butter-bars">Peanut Butter Bars</a><span class="src">from Allie - written out below</span></li>
+<li data-title="soft batch brown sugar coconut oil cookies" data-tags="together"><a href="#brown-sugar-coconut-oil-cookies">Soft Batch Brown Sugar Coconut Oil Cookies</a><span class="src">from Anna - written out below</span></li>
+<li data-title="strawberry tartlets" data-tags="together"><a href="#strawberry-tartlets">Strawberry Tartlets</a><span class="src">from Kristen - written out below</span></li>
+<li data-title="super easy lemon bars" data-tags="easy together"><a href="#super-easy-lemon-bars">Super Easy Lemon Bars</a><span class="src">from Phaidra - written out below</span></li>
+<li data-title="thai mangoes and sticky rice" data-tags="easy"><a href="#thai-mangoes-sticky-rice">Thai Mangoes and Sticky Rice</a><span class="src">from Kristen - written out below</span></li>
+<li data-title="unbaked cookies" data-tags="easy together"><a href="#unbaked-cookies">Unbaked Cookies</a><span class="src">from Michelle - written out below</span></li>
+<li data-title="key lime cheesecake" data-tags="together"><a href="http://allrecipes.com/recipe/7441/key-lime-cheesecake-i/" target="_blank" rel="noopener">Key Lime Cheesecake</a><span class="src">allrecipes.com</span></li>
+<li data-title="no-bake chewy granola bars" data-tags="easy together"><a href="http://www.mykitchenescapades.com/2014/03/no-bake-chewy-granola-bars-revised.html" target="_blank" rel="noopener">No-Bake Chewy Granola Bars</a><span class="src">from Katie - mykitchenescapades.com</span></li>
+<li data-title="raspberry sauce" data-tags=""><a href="http://allrecipes.com/recipe/142149/raspberry-sauce/" target="_blank" rel="noopener">Raspberry Sauce</a><span class="src">allrecipes.com</span></li>
+<li data-title="tim riggins brownies (mississippi mud brownies)" data-tags="together"><a href="https://ourbestbites.com/mississippi-mud-brownies/" target="_blank" rel="noopener">Tim Riggins Brownies (Mississippi Mud Brownies)</a><span class="src">ourbestbites.com</span></li></ul></section>
 </div>
 <div id="recipes">
-<section class="catblock" data-cat><h2 class="cathead">Soups</h2><article class="recipe" id="creamy-taco-soup" data-title="creamy taco soup">
+<section class="catblock" data-cat><h2 class="cathead">Breakfast</h2><article class="recipe" id="crepes" data-title="crepes with whipped cream" data-tags="together">
+<h3 class="rtitle">Crepes with Whipped Cream</h3>
+<p class="note">From Kimberly</p>
+<h4>Ingredients</h4>
+<ul><li>Crepes (4 servings): 1 cup all-purpose flour</li><li>2 eggs</li><li>1/2 cup milk</li><li>1/2 cup water</li><li>1/4 tsp salt</li><li>2 tbsp butter, melted</li><li>Fillings: ham, cheese and fruit/berries (bananas, strawberries)</li><li>Whipped cream: 1 cup heavy cream, 4 tbsp powdered sugar, 1 tsp vanilla</li></ul>
+<h4>Directions</h4>
+<ol><li>In a large mixing bowl, whisk together the flour and the eggs. Gradually add in the milk and water, stirring to combine. Add the salt and butter; beat until smooth.</li><li>Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each crepe. Tilt the pan with a circular motion so that the batter coats the surface evenly.</li><li>Cook the crepe for about 2 minutes, until the bottom is light brown. Loosen with a spatula, turn and cook the other side. Serve hot.</li><li>Fill crepes with ham and cheese and fruit.</li><li>To make whipped cream, beat the cream, vanilla and powdered sugar together for 10 minutes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="crockpot-blueberry-breakfast-dish" data-title="crockpot blueberry breakfast dish" data-tags="different-times">
+<h3 class="rtitle">Crockpot Blueberry Breakfast Dish</h3>
+<p class="note">From Marva</p>
+<h4>Ingredients</h4>
+<ul><li>2 cups blueberries (fresh or frozen)</li><li>1 tablespoon flour</li><li>4 eggs</li><li>3/4 cup milk</li><li>1 cup brown sugar</li><li>1/4 cup maple syrup</li><li>3 teaspoons cinnamon</li><li>2 teaspoons vanilla</li><li>Cooking spray</li><li>8 cups French bread, cut into cubes</li></ul>
+<h4>Directions</h4>
+<ol><li>Pour the blueberries into a bowl and sprinkle with the tablespoon of flour. Stir gently, so you don&#x27;t smush the berries. Set aside.</li><li>In a large bowl, mix the eggs, milk, brown sugar, maple syrup, cinnamon, and vanilla until smooth.</li><li>Spray the inside of your crock pot with cooking spray. Lay half the cubed French bread (4 cups) in the crock pot. Sprinkle half the blueberries (1 cup) over the bread randomly. Put in the rest of the bread, topped with the rest of the blueberries.</li><li>Pour the egg and milk mixture over the top, and press down on the bread a little so it all gets wet, but not too squished.</li><li>Cook on low for 3-4 hours.</li><li>Serve warm, topped with whipped cream or ice cream.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="refrigerator-bran-muffins" data-title="refrigerator bran muffins (lion house)" data-tags="together">
+<h3 class="rtitle">Refrigerator Bran Muffins (Lion House)</h3>
+<p class="note">From Celene</p>
+<h4>Ingredients</h4>
+<ul><li>4 cups All-Bran (non-flake)</li><li>1 cup vegetable oil</li><li>2 cups sugar</li><li>4 eggs</li><li>1 quart buttermilk</li><li>5 cups flour</li><li>1 teaspoon salt</li><li>5 teaspoons baking soda</li><li>2 cups bran flakes (Raisin Bran, if you like raisins)</li></ul>
+<h4>Directions</h4>
+<ol><li>Pour 2 cups boiling water on 4 cups of All-Bran (non-flake).</li><li>In a separate bowl, combine 1 cup vegetable oil and 2 cups sugar.</li><li>Combine mixtures and add 4 beaten eggs and 1 quart buttermilk.</li><li>Sift and stir in 5 cups flour, 1 teaspoon salt, 5 teaspoons baking soda.</li><li>Add 2 cups of bran flakes.</li><li>Store in the fridge. They say it is good for six weeks in the fridge!</li><li>For an individual muffin: pour 1/4 to 1/2 cup of batter on a small plate (paper plate or sprayed with cooking oil), microwave for one minute, and spread with butter, jam, honey, or cinnamon sugar.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="spiced-apple-pancakes" data-title="spiced apple pancakes with apple cider syrup" data-tags="together">
+<h3 class="rtitle">Spiced Apple Pancakes with Apple Cider Syrup</h3>
+<p class="note">From Audrey</p>
+<h4>Ingredients</h4>
+<ul><li>Pancakes: 2 c Bisquick</li><li>1/2 tsp cinnamon</li><li>1 egg</li><li>1 1/3 c milk</li><li>2 peeled, grated apples</li><li>Syrup: 1 c sugar</li><li>2 tbsp cornstarch</li><li>1/4 tsp cinnamon</li><li>1/4 tsp nutmeg</li><li>2 c apple juice</li><li>2 tbsp lemon juice</li><li>1/4 c margarine</li></ul>
+<h4>Directions</h4>
+<ol><li>Pancakes: mix first 4 ingredients until pancake batter comes together. Then fold in grated apples. Cook on griddle or in pan. (Note: you can also use any pancake recipe or mix - just add 2 grated apples per 2 cups of dry pancake ingredients.)</li><li>Syrup: mix dry ingredients well in a bowl. In a saucepan, heat margarine on low until melted. Add apple juice and lemon juice. Slowly stir in dry ingredients. Boil for 1 minute. It will thicken. Remove from heat. Serve warm with apple pancakes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article></section>
+<section class="catblock" data-cat><h2 class="cathead">Appetizers</h2><article class="recipe" id="three-minute-dip" data-title="3-minute dip" data-tags="crunch-time easy together">
+<h3 class="rtitle">3-minute dip</h3>
+<p class="note">From Emily</p>
+<h4>Ingredients</h4>
+<ul><li>8 oz cream cheese splash of milk</li><li>2-‐3 oz mozzarella cheese sprinkle of favorite spice/rub</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine all</li></ol>
+<h4>Ingredients</h4>
+<ul><li>in a microwave safe vessel. Microwave</li><li>1 minute, stir. Repeat until it&#x27;s been microwave for 3 minutes or until all combined. Serve hot with chips, crackers, or veggies!</li></ul>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="cucumber-sandwiches" data-title="cucumber sandwiches" data-tags="easy together">
+<h3 class="rtitle">Cucumber Sandwiches</h3>
+<p class="note">From Michelle</p>
+<h4>Ingredients</h4>
+<ul><li>2 loaves baguette bread</li><li>3 English cucumbers (peeled)</li><li>Cream cheese - probably at least 2 packages</li><li>1 squeeze of lemon (adjust to your taste)</li><li>1 cup sour cream</li><li>1 cup mayo (don&#x27;t sub with Miracle Whip)</li><li>1 Tbsp parsley</li><li>4 Tbsp finely chopped onion</li><li>2 Tbsp dillweed</li><li>1/2 tsp. salt</li><li>2 tsp. worcestershire sauce</li><li>Dash of pepper</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix together the lemon, sour cream, mayo, parsley, onion, dillweed, salt, worcestershire sauce and pepper.</li><li>Slice bread and cucumbers. Spread cream cheese on bread, then put the cucumber on, then put a dollop of the mixture on the top.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="pork-egg-rolls" data-title="pork egg rolls" data-tags="different-times together">
+<h3 class="rtitle">Pork Egg Rolls</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1 lb ground pork</li><li>1 head of cabbage (chopped or shredded)</li><li>3-4 lg carrots (chopped or shredded)</li><li>Kikkoman&#x27;s Teriyaki sauce (1/4-1/2 c.)</li><li>Onion powder (1 tsp.)</li><li>Garlic powder (1 tsp.)</li><li>Salt (1 tsp.)</li><li>Black pepper (1/2 tsp.)</li><li>1 pkg. egg roll wrappers (produce section of most grocery stores)</li></ul>
+<h4>Directions</h4>
+<ol><li>Cook ground pork on medium high heat and season with onion powder, garlic powder, salt and pepper. Once cooked all the way through, add cabbage and carrots. Cook for a few minutes and then add teriyaki sauce to taste. You may have to add more spices and teriyaki sauce until the mixture is flavorful when you taste it.</li><li>Follow the directions for folding found on the package of egg roll wrappers. Fry in oil heated to 350 degrees until outside is browned and crispy.</li><li>These can be stored (already fried) for a few days in the fridge and reheated in the oven at 400 degrees for 15 minutes, flipping half way through. Fry them first because otherwise the wrappers will get mushy and disintegrate.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article></section>
+<section class="catblock" data-cat><h2 class="cathead">Soups</h2><article class="recipe" id="jenn-chili" data-title="chili" data-tags="different-times easy together">
+<h3 class="rtitle">Chili</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>1 pound ground beef or turkey</li><li>1 onion, chopped</li><li>3-4 T chili seasoning</li><li>1 can kidney beans</li><li>1 can black beans</li><li>1 can pinto beans</li><li>1 can diced tomatoes or Rotel</li></ul>
+<h4>Directions</h4>
+<ol><li>Brown beef in the bottom of a large stockpot with onion. Add seasoning and mix well.</li><li>Add beans and tomatoes and heat until it comes to a boil. Reduce heat and simmer for 10 minutes.</li><li>Great with cornbread or with baked potatoes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="creamy-taco-soup" data-title="creamy taco soup" data-tags="crunch-time different-times together">
 <h3 class="rtitle">Creamy Taco Soup</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -91,7 +244,34 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ul><li>Beef broth works instead of chicken broth (darker color). Use low-salt broth if watching salt.</li><li>For a spicy version add 1/2 teaspoon cayenne pepper.</li><li>If not using Ro-tel, use regular diced tomatoes plus a can or two of diced green chilies (4 oz size).</li></ul>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="taco-soup" data-title="taco soup">
+<article class="recipe" id="easy-mexican-soup" data-title="easy mexican soup" data-tags="crunch-time different-times easy">
+<h3 class="rtitle">Easy Mexican Soup</h3>
+<p class="note">From Brenda</p>
+<h4>Ingredients</h4>
+<ul><li>1 can corn, drained and rinsed</li><li>1 can each of 2 kinds of beans (black, pinto, kidney, white kidney, navy, etc.) - drain and rinse before adding</li><li>1 can diced tomatoes or 1 jar salsa (depending on what spiciness you want)</li><li>1 can cooked chicken, drained</li><li>3 cups of chicken stock</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix together in a large pot and heat to boiling, stirring.</li><li>Reduce heat and cook for 10 minutes. Turn off heat and allow to cool before serving.</li><li>Can garnish with avocado slices, shredded cheese, sour cream, chips - whatever you like!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="ranch-chicken-bean-soup" data-title="ranch chicken bean soup" data-tags="different-times easy together">
+<h3 class="rtitle">Ranch Chicken Bean Soup</h3>
+<p class="note">From Tere</p>
+<h4>Ingredients</h4>
+<ul><li>5 c. water</li><li>1 to 1.5 lb. boneless, skinless chicken breasts</li><li>1 med. onion, chopped</li><li>15 oz. can black beans, drained and rinsed</li><li>2 16 oz cans dark kidney beans, drained and rinsed</li><li>15 oz. can garbanzo beans, drained and rinsed</li><li>2 14.5 oz diced tomatoes with liquid</li><li>1 envelope taco seasoning</li><li>1 envelope ranch dressing mix</li><li>Grated Mexican-blend cheese (optional)</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine water and chicken. Simmer over medium heat 30-45 minutes, until chicken is thoroughly cooked.</li><li>Remove chicken and cut into bite-size pieces. Return chicken to the broth and stir in onion, beans, tomatoes, taco seasoning, and ranch dressing mix.</li><li>Simmer 20 minutes over medium-low heat until heated through. Garnish with cheese (and sour cream) if desired. Makes 8-10 servings.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="red-lentil-soup" data-title="red lentil soup" data-tags="different-times easy">
+<h3 class="rtitle">Red Lentil Soup</h3>
+<p class="note">From Shelley</p>
+<h4>Ingredients</h4>
+<ul><li>2 T olive oil</li><li>15-‐oz can crushed tomatoes</li><li>1 medium onion, chopped</li><li>1/2 tsp cumin</li><li>2 cloves garlic, minced</li><li>1/4 tsp coriander</li><li>6 cups broth (chicken, beef, or veggie)</li><li>1 T lemon juice</li><li>1 lb red lentils (about 2 1/4 cups)</li><li>1/2 lb bacon, cooked and crumbled (optional) salt and pepper to taste</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine everything in a large pot and bring to a boil. Reduce heat to low. Cover and simmer for 50-‐60 minutes. Serves</li><li>6.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="taco-soup" data-title="taco soup" data-tags="different-times easy together">
 <h3 class="rtitle">Taco Soup</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -100,7 +280,16 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Brown the meat and onion, drain, add all the other ingredients, and simmer.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article></section>
-<section class="catblock" data-cat><h2 class="cathead">Main Courses</h2><article class="recipe" id="beef-stroganoff" data-title="beef stroganoff">
+<section class="catblock" data-cat><h2 class="cathead">Main Courses</h2><article class="recipe" id="baked-chicken-taquitos" data-title="baked chicken taquitos" data-tags="together">
+<h3 class="rtitle">Baked Chicken Taquitos</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>3 ounces of cream cheese</li><li>1/4 cup green salsa</li><li>1 Tbsp lime juice</li><li>1/2 tsp cumin</li><li>1 tsp chili powder</li><li>1/2 tsp onion powder</li><li>1/4 tsp garlic powder</li><li>3 Tbsp chopped cilantro</li><li>2 Tbsp chopped green onion</li><li>2 cups cooked, shredded chicken (can use rotisserie chicken)</li><li>1 cup shredded cheese</li><li>Corn or flour tortillas</li></ul>
+<h4>Directions</h4>
+<ol><li>Heat oven to 425 degrees. Spray a cookie sheet with cooking spray.</li><li>Heat cream cheese in the microwave for 20-30 seconds so it&#x27;s easy to stir. Add remaining ingredients except tortillas and stir to combine.</li><li>Heat tortillas in the microwave for a few seconds so they are warm and soft. Place 2-3 Tbsp of the chicken mixture in the center of the tortilla and roll up.</li><li>Place seam-side down on baking sheet and spray taquitos lightly with cooking spray. Cook for 15-20 minutes until crispy.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="beef-stroganoff" data-title="beef stroganoff" data-tags="crunch-time easy">
 <h3 class="rtitle">Beef Stroganoff</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -109,7 +298,16 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Saute the beef, garlic, onions and mushrooms together; salt and pepper to taste. Add the soup and simmer. Add the sour cream. Serve over egg noodles cooked in chicken broth - also great over baked potatoes.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="bruschetta-chicken-bake" data-title="bruschetta chicken bake">
+<article class="recipe" id="boston-butt" data-title="boston butt with garlic and orange" data-tags="together">
+<h3 class="rtitle">Boston Butt with Garlic and Orange</h3>
+<p class="note">From Chaille</p>
+<h4>Ingredients</h4>
+<ul><li>1 6 lb Boston Butt (bone-in pork shoulder roast; boneless works too)</li><li>1 T salt</li><li>3 T fresh garlic (4ish cloves for a smaller butt)</li><li>2 t black pepper</li><li>2 t dried oregano</li><li>1/2 C lime juice</li><li>1/2 C orange juice (one whole orange)</li></ul>
+<h4>Directions</h4>
+<ol><li>Place butt in foil-lined roasting pan. Cut 4-5 1-inch-deep slits across the top and sprinkle with salt.</li><li>Stir together garlic, seasonings and juices. Pour over butt evenly, rubbing into slits. Cover and chill 8 hours (or just let it stand at room temp for maybe 30 minutes to let it soak in).</li><li>Bake, uncovered, at 325 for 4 1/2 hours or until temperature reaches 175 degrees. Remove from oven and let stand until temp goes up to 185. (Time varies with the size - start with the package recommendation, usually about 30 minutes per pound, and add time as needed.)</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="bruschetta-chicken-bake" data-title="bruschetta chicken bake" data-tags="crunch-time easy">
 <h3 class="rtitle">Bruschetta Chicken Bake</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -118,7 +316,97 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Heat oven to 400 F. Mix the tomatoes, dry stuffing mix, water and garlic just until the stuffing mix is moistened.</li><li>Layer the chicken, basil, cheese and stuffing in a 9x13 baking dish.</li><li>Bake 30 minutes or until the chicken is cooked through.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="grilled-lime-coconut-chicken" data-title="grilled lime coconut chicken with coconut rice">
+<article class="recipe" id="chicken-broccoli-casserole" data-title="chicken broccoli casserole" data-tags="together">
+<h3 class="rtitle">Chicken Broccoli Casserole</h3>
+<p class="note">From Vivien</p>
+<h4>Ingredients</h4>
+<ul><li>3 chicken breasts, cooked and shredded</li><li>1 pkg frozen broccoli</li><li>1 cup mayonnaise</li><li>2 cans condensed cream of chicken soup</li><li>1 cup chicken broth</li><li>1 tsp. garlic powder</li><li>1 tsp. onion powder</li><li>1/2 tsp. black pepper</li><li>1/2 tsp. dried oregano</li><li>1/2 tsp. dried parsley</li><li>2 cups shredded cheddar cheese</li></ul>
+<h4>Directions</h4>
+<ol><li>In medium bowl combine condensed soup, mayonnaise, chicken broth and seasonings.</li><li>Evenly place cooked and drained broccoli in bottom of 13x9 baking dish. Sprinkle with salt and pepper. Evenly spread shredded chicken over broccoli. Pour mixture over chicken. Top with shredded cheese.</li><li>Bake at 350 for 30 min. Serve over white rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="chicken-italiano" data-title="chicken italiano" data-tags="different-times easy">
+<h3 class="rtitle">Chicken Italiano</h3>
+<p class="note">From Mary</p>
+<h4>Ingredients</h4>
+<ul><li>2 large whole boneless, skinless chicken breasts, each cut into 3 pieces lengthwise (or 1.5-2 lbs chicken tenderloins)</li><li>3/4 tsp. salt</li><li>1/4 tsp. black pepper</li><li>1/2 tsp. dried oregano</li><li>1/2 tsp. dried basil</li><li>2 bay leaves</li><li>24 oz. jar of meatless spaghetti sauce</li></ul>
+<h4>Directions</h4>
+<ol><li>Best for a 4 quart slow cooker. Place the chicken in bottom of slow cooker. Sprinkle seasonings over chicken. Pour sauce over seasoned meat, stirring to be sure chicken is completely covered.</li><li>Cover with lid and cook on low for 6 hours or on high 3.25-4 hours. It&#x27;s okay for the chicken to cook all day on low while you are at school or work. (Remove the bay leaves before serving.)</li><li>Serve over pasta.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="chicken-poppyseed" data-title="chicken poppyseed" data-tags="together">
+<h3 class="rtitle">Chicken Poppyseed</h3>
+<p class="note">From Brenda</p>
+<h4>Ingredients</h4>
+<ul><li>4 skinless boneless chicken breasts</li><li>1/2 cup melted butter</li><li>1-2 tsp poppyseeds</li><li>1 8oz container sour cream</li><li>1 can condensed cream of chicken soup</li><li>2 cups shredded cheese (optional)</li><li>Crackers, crushed</li></ul>
+<h4>Directions</h4>
+<ol><li>Place the chicken breasts into a large pot and cover with water. Bring to a boil over high heat, then reduce heat to medium, cover, and simmer until the chicken is no longer pink in the center, about 20 minutes. Drain, then shred the chicken.</li><li>Preheat oven to 350 F. Combine the butter, crackers, and poppy seeds in a bowl; set aside.</li><li>Blend the sour cream and cream of chicken soup in a bowl; pour half of the soup mixture into a 9x9-inch baking dish. Add the shredded chicken, then pour the remaining half of the soup mixture on top. Sprinkle with cheddar cheese (optional), then top with the cracker mixture.</li><li>Bake until cheese has melted and the sauce is bubbly, 25 to 30 minutes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="chicken-stir-fry" data-title="chicken stir fry" data-tags="crunch-time">
+<h3 class="rtitle">Chicken Stir Fry</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>Boneless, skinless chicken breasts, cubed</li><li>Olive oil</li><li>Minced garlic</li><li>Soy sauce</li><li>Frozen stir fry vegetable mix, or fresh: green onion, carrots, broccoli, diced red and green bell pepper, green beans, baby corn, etc.</li></ul>
+<h4>Directions</h4>
+<ol><li>Heat oil in a saute pan. Add garlic and stir quickly. Add chicken and stir until cooked thoroughly. Add 2 T soy sauce.</li><li>Remove chicken from the pan and add vegetables. Cook through (helps to add a bit of water and cover to steam if you are in a hurry). Add another 2 T of soy sauce.</li><li>Add chicken and heat through. Serve over rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="crock-pot-salsa-chicken" data-title="crock pot salsa chicken" data-tags="different-times easy together">
+<h3 class="rtitle">Crock Pot Salsa Chicken</h3>
+<p class="note">From Sara</p>
+<h4>Ingredients</h4>
+<ul><li>4 chicken breasts, frozen or thawed</li><li>1 (15.5 oz) can black beans, drained and rinsed</li><li>1 (15 oz) can corn, drained</li><li>1 (15 oz) jar of your favorite salsa</li><li>1 (8 oz) package cream cheese, softened</li></ul>
+<h4>Directions</h4>
+<ol><li>Put the chicken breasts into the crock pot. Add the black beans, salsa and corn. Keep in crock pot on low for about 4-5 hours or until chicken is cooked.</li><li>Once it is cooked, take it out and shred it. Return shredded chicken to the crockpot.</li><li>Add the package of cream cheese (just throw it on top!) and let sit for about 1/2 hour. It may look a little strange at this point - don&#x27;t worry. Stir in the cream cheese.</li><li>Serve over rice, in tortillas or on top of lettuce for a salad!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="curry-chicken-rice" data-title="curry chicken with rice" data-tags="easy">
+<h3 class="rtitle">Curry Chicken with Rice</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>2 T butter</li><li>1 apple, chopped fine</li><li>1 onion, chopped fine</li><li>2 T curry powder</li><li>1-2 cans cream of mushroom soup</li><li>1-2 cans of milk</li><li>Salt</li><li>Paprika</li><li>4-6 chicken breasts (cooks a little faster if you cut the breasts into 3+ pieces)</li><li>Rice</li></ul>
+<h4>Directions</h4>
+<ol><li>Melt butter in a pan and saute apple, onion and curry powder. Add soup and milk. Stir.</li><li>Salt and paprika chicken and place in a baking pan sprayed with cooking spray. Pour sauce over it.</li><li>Bake uncovered at 350 for 60 minutes or until chicken is cooked through. Serve over rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="fiesta-chicken-slow-cooker" data-title="fiesta chicken in a slow cooker" data-tags="different-times together">
+<h3 class="rtitle">Fiesta Chicken in a Slow Cooker</h3>
+<p class="note">From Mary</p>
+<h4>Ingredients</h4>
+<ul><li>5 chicken breasts (fresh or frozen)</li><li>1 (15.5 oz.) can black beans, drained</li><li>1 cup frozen corn</li><li>6 ounces sliced black olives, drained</li><li>1/2 onion chopped</li><li>1/2 red bell pepper, chopped (shortcut: 1.5 cups frozen bell pepper and onion)</li><li>1 (15 ounce) jar salsa, medium</li><li>1 (8 ounce) package cream cheese</li><li>1-2 tablespoons taco seasoning</li></ul>
+<h4>Directions</h4>
+<ol><li>Add all ingredients to the crock pot EXCEPT the cream cheese. You can add the chicken breasts frozen. Cook on high for 4-6 hours or low for 8 hours.</li><li>Add the package of cream cheese (whole) to the top of the cooking chicken mixture for the last 30 minutes of cooking.</li><li>Stir the mixture to incorporate the cream cheese and shred the chicken.</li><li>Serve over cooked rice or egg noodles with a dollop of sour cream and sprinkles of cheddar cheese if desired - or on flour tortillas along with Mexican rice (use a slotted spoon to drain the liquid first).</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="flank-steak-marinade" data-title="flank steak marinade" data-tags="easy">
+<h3 class="rtitle">Flank Steak Marinade</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>1/4 c. soy sauce</li><li>3 Tbsp honey</li><li>2 Tbsp vinegar</li><li>1 tsp garlic powder</li><li>1 tsp ground ginger</li><li>3/4 c oil</li><li>1 green onion, chopped</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine all ingredients. Makes 1 cup - enough for 2-3 lbs meat.</li><li>Pour over meat and marinade all day. Grill.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="french-dip-sandwiches" data-title="french dip sandwiches" data-tags="different-times together">
+<h3 class="rtitle">French Dip Sandwiches</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>1 3-4 lb. boneless beef roast</li><li>1 large white onion, sliced</li><li>Montreal Steak Seasoning</li><li>2 beef bouillon cubes</li><li>Deli or hoagie buns</li><li>1 c. water</li></ul>
+<h4>Directions</h4>
+<ol><li>Place the roast into a crockpot and season with steak seasoning. Spread the beef base all over the top. Place the sliced onions on top of the roast. Add water.</li><li>Let cook 4-6 hours, or until it shreds easily with a fork.</li><li>Strain beef broth and reserve for dipping sandwiches in it. Shred roast and serve on buns. Can also add cheese - Swiss or provolone taste great.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="greek-chicken-potatoes" data-title="greek chicken and potatoes" data-tags="easy">
+<h3 class="rtitle">Greek Chicken and Potatoes</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>6 chicken thighs or 2-3 chicken breasts</li><li>1 pound small Yukon gold potatoes, halved</li><li>1/2 C olive oil</li><li>1/3 C lemon juice</li><li>1 t lemon zest</li><li>2 t kosher salt</li><li>1 t pepper</li><li>1 T minced garlic</li><li>2 t dried oregano</li><li>2 T chopped fresh parsley</li><li>Lemon wedges for garnish</li><li>Cooking spray</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat the oven to 400 degrees. Place olive oil, lemon juice, lemon zest, salt, pepper, garlic and oregano in a large bowl. Whisk to combine.</li><li>Add the chicken and potatoes to the bowl; toss to coat with the marinade.</li><li>Coat a sheet pan with foil and cooking spray. Arrange chicken and potatoes on the pan in a single layer.</li><li>Bake for 40-45 minutes or until chicken is done and potatoes are tender, stirring halfway through. Sprinkle with parsley. Garnish with lemon wedges and serve.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="grilled-lime-coconut-chicken" data-title="grilled lime coconut chicken with coconut rice" data-tags="">
 <h3 class="rtitle">Grilled Lime Coconut Chicken with Coconut Rice</h3>
 <p class="note">Saved from an email; originally from melskitchencafe.com</p>
 <h4>Ingredients - Chicken and Marinade/Sauce</h4>
@@ -129,7 +417,43 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Whisk together the oil, lime zest, lime juice, cumin, coriander, soy sauce, salt, sugar, curry powder, coconut milk, and cayenne pepper. Place the chicken in a large ziploc bag, pour the marinade over, seal, and refrigerate at least 2 hours and up to 8 hours.</li><li>For the coconut rice, bring the rice, coconut milk, water and salt to a simmer in a medium saucepan. Cover, reduce the heat to low and simmer 15-16 minutes until the liquid is mostly evaporated. Remove from the heat and let stand 10 minutes before fluffing with a fork.</li><li>Preheat a charcoal or gas grill to medium-high. Grill the chicken 6-7 minutes per side, depending on thickness. While the chicken cooks, pour the marinade into a saucepan, bring to a rolling boil and boil 10 minutes, stirring occasionally.</li><li>Plate the chicken, drizzle with sauce (reserve the rest to serve separately), sprinkle with fresh cilantro, and serve with lime wedges and extra sauce.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="italian-beef" data-title="italian beef">
+<article class="recipe" id="grilled-spicy-honey-chicken" data-title="grilled spicy honey chicken" data-tags="crunch-time">
+<h3 class="rtitle">Grilled Spicy Honey Chicken</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>8 boneless skinless chicken thighs, about 2 pounds</li><li>2 teaspoons vegetable oil</li><li>Rub: 2 teaspoons granulated garlic, 2 teaspoons chili powder, 1/2 teaspoon onion powder, 1/2 teaspoon coriander, 1 teaspoon kosher salt, 1 teaspoon cumin, 1/2 teaspoon chipotle chili powder</li><li>Glaze: 1/2 cup honey, 1 tablespoon cider vinegar</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine the rub spices in a bowl and mix well. Trim any excess fat from the chicken pieces. Pat dry. Drizzle oil over chicken and rub in with your hands to lightly coat all the pieces. Then toss chicken with the spice rub to coat all sides well.</li><li>Grill chicken for 3-5 minutes on each side, until cooked through.</li><li>While chicken is cooking, warm honey in the microwave. Add the vinegar and combine well. Reserve 2 tablespoons honey glaze for later. Take the rest and brush on chicken (both sides) in the final moments of grilling.</li><li>Drizzle chicken with reserved glaze before serving.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="guiltless-alfredo-sauce" data-title="guiltless alfredo sauce" data-tags="crunch-time easy">
+<h3 class="rtitle">Guiltless Alfredo Sauce</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>2 cups milk</li><li>3 ounces of low-fat cream cheese</li><li>2 Tbsp flour</li><li>1 tsp kosher salt</li><li>1 Tbsp butter</li><li>3 garlic cloves, minced</li><li>1 cup parmesan cheese</li></ul>
+<h4>Directions</h4>
+<ol><li>In a blender, blend milk, cream cheese, flour, and salt until smooth. Set aside.</li><li>In a large saucepan, melt butter. Cook garlic in butter for 1 minute. Add milk mixture. Stir constantly for 5 minutes until it simmers. Keep stirring and let it cook for a few minutes more until it starts to thicken.</li><li>Remove from heat and stir in the parmesan cheese. Put the lid on the pan and let sit for about 10 minutes to thicken. We love adding fresh cracked pepper.</li><li>Serve over any pasta - fettucine or tortellini are our favorites. Can be meatless or add cooked chicken.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="ham-fried-rice" data-title="ham fried rice" data-tags="crunch-time">
+<h3 class="rtitle">Ham Fried Rice</h3>
+<p class="note">From Emily</p>
+<h4>Ingredients</h4>
+<ul><li>1 egg, beaten, fried into an omelet, and cut into chunks</li><li>1 Tbsp. peanut or vegetable oil</li><li>1 cup cooked, chopped ham</li><li>1 clove garlic, minced</li><li>1/4 tsp. dried ginger</li><li>2 green onions, chopped</li><li>2 cups cooked rice</li><li>1/4 frozen peas</li><li>2 Tbsp. soy sauce</li><li>1 dash liquid smoke</li></ul>
+<h4>Directions</h4>
+<ol><li>In a large frying pan or wok, saute vegetables in oil.</li><li>Add ham, egg chunks, ginger, and cooked rice.</li><li>Add soy sauce and liquid smoke. Mix and reheat.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="harveys-turkey-brine" data-title="harvey&#x27;s turkey brine" data-tags="together">
+<h3 class="rtitle">Harvey&#x27;s Turkey Brine</h3>
+<p class="note">From Harvey</p>
+<h4>Ingredients</h4>
+<ul><li>1 cup kosher salt</li><li>4 quarts vegetable stock</li><li>A small palm full black peppercorns</li><li>A chopped thumb-size knob of ginger</li><li>1/2 cup honey</li><li>1/2 cup frozen apple juice concentrate</li><li>1 onion, sliced</li><li>2 medium whole oranges, sliced horizontally against the sections</li><li>A bunch of parsley</li><li>Half a bunch rosemary</li><li>12 sage leaves</li><li>A bunch of thyme</li><li>1 gallon heavily iced water</li></ul>
+<h4>Directions</h4>
+<ol><li>Enough for a fully thawed 15 lb bird. Bring the salt, vegetable stock, peppercorns and ginger to a boil in your largest stockpot (at least 3 gallon capacity) just till the salt is dissolved, then remove from heat and cool.</li><li>Stir in the honey, apple juice concentrate, onion, oranges, parsley, rosemary, sage, thyme and iced water.</li><li>Put the turkey in a double-strength plastic bag (a turkey-size oven roasting bag works great), pour in the cold brine, make sure the turkey is fully covered, and tie off the bag, then put it in a second bag and tie it too.</li><li>Place the turkey breast-side-down in a container and then in the fridge, or in a just-big-enough cooler covered completely with ice, and soak for 24 hours minimum, up to 48 hours. Add ice to maintain a 40 degree or less temp at all times.</li><li>Remove from brine and rinse. Then roast, deep-fry or smoke as usual. Cooking breast-side-down in a roasting rack helps avoid overcooking the breast (flip three quarters of the way through if appearance matters). The turkey is ready when the breast registers 155-158 on an instant-read thermometer; the thigh is ready at about 165.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="italian-beef" data-title="italian beef" data-tags="different-times together">
 <h3 class="rtitle">Italian Beef</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -138,7 +462,7 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Mix all ingredients (except the roast) in a large crockpot. Place the roast in and cook on low 8-10 hours, until fork tender.</li><li>Remove the beef and shred with two forks. Add back to the juices and enjoy.</li><li>For traditional Chicago-style, pile high on a crusty roll with provolone slices and chopped giardiniera.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="italian-sausage-sheet-pan" data-title="italian sausage sheet pan dinner">
+<article class="recipe" id="italian-sausage-sheet-pan" data-title="italian sausage sheet pan dinner" data-tags="crunch-time easy">
 <h3 class="rtitle">Italian Sausage Sheet Pan Dinner</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -147,7 +471,7 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Preheat oven to 425 F. Line a baking sheet with aluminum foil.</li><li>Cut each sausage into 4 pieces. Place on the baking sheet. Add the sliced onion, zucchini, peppers, and mushrooms and toss to evenly distribute.</li><li>In a small bowl, whisk together the Italian seasoning, garlic, oil, salt, and red pepper flakes. Drizzle over the veggies and toss to combine.</li><li>Bake 20 minutes, stirring halfway through. Sprinkle with freshly grated parmesan and serve immediately.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="korean-ground-beef-bowls" data-title="korean ground beef and rice bowls">
+<article class="recipe" id="korean-ground-beef-bowls" data-title="korean ground beef and rice bowls" data-tags="crunch-time easy">
 <h3 class="rtitle">Korean Ground Beef and Rice Bowls</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -156,14 +480,86 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>In a large skillet, cook the ground beef and garlic over medium heat, breaking it into crumbles, until no longer pink.</li><li>In a small bowl whisk the brown sugar, soy sauce, sesame oil, ginger, red pepper flakes and pepper. Pour over the beef and simmer another minute or two.</li><li>Serve over hot rice and garnish with green onions and sesame seeds.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="pesto-chicken" data-title="pesto chicken">
+<article class="recipe" id="lemon-pepper-tilapia" data-title="lemon pepper tilapia" data-tags="crunch-time easy">
+<h3 class="rtitle">Lemon Pepper Tilapia</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>Tilapia (frozen section at Costco, thawed)</li><li>Lemon juice</li><li>Pepper</li><li>Parmesan cheese</li></ul>
+<h4>Directions</h4>
+<ol><li>Place fish on a baking sheet covered in foil and coated with cooking spray. Poke the fish with a fork.</li><li>Sprinkle lemon juice, parmesan and pepper to taste.</li><li>Bake at 400 for 20-25 minutes or until juices run clear and fish is flaky. Great with rice pilaf, couscous or quinoa.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="marvelous-mini-meatloaves" data-title="marvelous mini meatloaves" data-tags="together">
+<h3 class="rtitle">Marvelous Mini Meatloaves</h3>
+<p class="note">From Vivien</p>
+<h4>Ingredients</h4>
+<ul><li>1 pound ground beef</li><li>1 pkg (6 oz.) stuffing mix</li><li>1 cup water</li><li>Italian - seasoning: 1 tsp. Italian seasoning, add-in: 3/4 cup spaghetti sauce, cheese: 3/4 cup shredded mozzarella</li><li>Fiesta - seasoning: 2 tsp. chili powder, add-in: 3/4 cup salsa, cheese: 3/4 cup shredded Mexican style cheese</li><li>Mediterranean - seasoning: 1 tsp. dried oregano leaves, add-in: 3/4 cup roasted red peppers, cheese: 3/4 cup crumbled feta</li><li>BBQ - seasoning: 1 tsp. garlic powder, add-in: 3/4 cup barbeque sauce, cheese: 3/4 cup shredded cheddar</li></ul>
+<h4>Directions</h4>
+<ol><li>Take 1 pound ground beef, 1 pkg stuffing mix and 1 cup water, and mix and match your recipe from the options above.</li><li>Preheat oven to 375. Mix meat, stuffing mix, 1 cup water and seasoning until well blended. Press into 12 muffin cups sprayed with cooking spray; make an indentation in the center of each with a spoon.</li><li>Spoon add-ins into center of each meatloaf.</li><li>Bake 30 min or until meatloaves are cooked through. Top with cheese; continue baking 5 min or until cheese is melted.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="mikes-meatloaf" data-title="mike&#x27;s meatloaf" data-tags="together">
+<h3 class="rtitle">Mike&#x27;s Meatloaf</h3>
+<p class="note">From Karen</p>
+<h4>Ingredients</h4>
+<ul><li>2 TBL olive oil</li><li>2 CUPS yellow onions</li><li>4 CLOVES garlic</li><li>1.5 CUPS sharp provolone</li><li>1 LB. Italian sausage</li><li>1 LB. ground hamburger</li><li>1 LB. pulled pork</li><li>1 LB. cooked bacon</li><li>1/2 CUP ground Parmesan Goldfish</li><li>TBL salt</li><li>TBL pepper</li><li>4 eggs</li><li>Brown sugar</li><li>Spicy ketchup</li><li>Carrots</li><li>Mustard</li><li>Vidalia onion</li></ul>
+<h4>Directions</h4>
+<ol><li>As sent - the ingredient list was the whole recipe. Mix, form into a loaf, and bake like your favorite meatloaf.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="mitts-meat-loaf-cakes" data-title="mitt&#x27;s meat loaf cakes" data-tags="together">
+<h3 class="rtitle">Mitt&#x27;s Meat Loaf Cakes</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1.5 pounds ground beef</li><li>1 egg</li><li>1/4 cup onion, chopped</li><li>1/4 lemon juice</li><li>1/2 cup bread crumbs</li><li>2 teaspoons seasoned salt</li><li>Sauce: 1/2 cup ketchup, 1/2 cup brown sugar, 1 teaspoon dry mustard, 1/4 teaspoon allspice</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix all the loaf ingredients. Shape and put into 6 mini loaves on a cookie sheet or 6 mini-loaf pans.</li><li>Mix the sauce (could double it - it&#x27;s the best sauce ever).</li><li>Bake loaves at 350 degrees for 15 minutes. Spoon sauce on top. Bake 30 more minutes. Let rest 10 minutes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="orange-chicken" data-title="orange chicken" data-tags="together">
+<h3 class="rtitle">Orange Chicken</h3>
+<p class="note">From Amanda</p>
+<h4>Ingredients</h4>
+<ul><li>Glaze: 1 1/2 cups water</li><li>2 Tb. orange juice</li><li>1/4 cup lemon juice</li><li>1/3 cup rice vinegar (in a pinch sub 2 Tb cider vinegar)</li><li>2 1/2 Tb soy sauce</li><li>1 Tb grated orange zest or 1 tsp orange extract</li><li>1 cup tightly packed brown sugar</li><li>1/2 tsp freshly minced ginger root (or 1/4 tsp powdered ginger)</li><li>1 tsp minced garlic</li><li>1/2 tsp red pepper flakes</li><li>3 Tb cornstarch mixed with 2 Tb water to create a slurry</li><li>Chicken: 2 chicken breasts cut into 1-2 inch pieces</li><li>1 egg</li><li>1 1/2 tsp salt</li><li>Black pepper</li><li>Oil for frying</li><li>1/2 cup cornstarch</li><li>1/2 cup flour</li></ul>
+<h4>Directions</h4>
+<ol><li>Glaze: mix all ingredients, except cornstarch slurry, in a sauce pan and bring to a boil, stirring occasionally. Reduce to a simmer and slowly add in the cornstarch mixture while stirring, then continue to stir as it thickens. Lower heat to keep warm. (Leftover sauce keeps in a glass jar in the fridge for a few weeks.)</li><li>Chicken: cut chicken into pieces and place in a large bowl. Stir in egg, salt, pepper, and 1 TB oil and mix well. Mix cornstarch and flour in a separate bowl. Add chicken pieces, stirring to coat.</li><li>Heat oil for frying in wok or deep fryer to 375 degrees. Add chicken pieces a small batch at a time, and fry for 3 to 4 minutes or until golden and crisp. Always make sure the chicken is cooked through.</li><li>Also good unbreaded - just cook the chicken and eat it with the sauce over rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="pesto-chicken" data-title="pesto chicken" data-tags="easy">
 <h3 class="rtitle">Pesto Chicken</h3>
 <p class="note">Saved from an email (more a method than a recipe)</p>
 <h4>How to make it</h4>
 <ol><li>Season chicken breasts with Montreal seasoning (or whatever you like) and grill.</li><li>Chop into bite-sized pieces and toss in pesto - the Kirkland brand from Costco is really good.</li><li>Serve with rice and a veggie like roasted or steamed broccoli or green beans.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="shoyu-chicken" data-title="shoyu chicken">
+<article class="recipe" id="pesto-salmon" data-title="pesto salmon" data-tags="crunch-time easy">
+<h3 class="rtitle">Pesto Salmon</h3>
+<p class="note">From Sara</p>
+<h4>Ingredients</h4>
+<ul><li>Salmon</li><li>Pesto sauce (we like the Costco pesto sauce)</li><li>Rice vinegar</li></ul>
+<h4>Directions</h4>
+<ol><li>Marinate salmon with pesto sauce and some rice vinegar in a ziploc bag.</li><li>Bake or grill.</li><li>Serve with veggies and rice!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="rosemary-balsamic-pork-tenderloin" data-title="rosemary balsamic pork tenderloin" data-tags="easy">
+<h3 class="rtitle">Rosemary Balsamic Pork Tenderloin</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>1-1.5 pounds pork tenderloin</li><li>4-5 cloves garlic, minced</li><li>1 tsp rosemary</li><li>1 tsp salt</li><li>1/2 tsp pepper</li><li>1.5 tsp balsamic vinegar</li><li>2 tsp olive oil</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine garlic, rosemary, salt, and pepper. Massage the seasoning all over the pork.</li><li>Whisk together the balsamic vinegar and olive oil. Place the pork and the oil/vinegar combo in a gallon bag. Marinate for 4-10 hours.</li><li>Heat oven to 400 degrees. Place pork in a casserole dish. Bake about 20-25 minutes or until the roast temperature is 160 degrees.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="sheet-pan-chicken-fajitas" data-title="sheet pan chicken fajitas" data-tags="crunch-time easy">
+<h3 class="rtitle">Sheet Pan Chicken Fajitas</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>3-4 chicken breasts cut into strips against the grain</li><li>3 bell peppers cut into thin strips</li><li>1 red onion cut into thin strips</li><li>2 T olive oil</li><li>1-2 T taco seasoning</li><li>Tortillas or cauliflower rice for serving</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat the oven to 400 degrees and line a baking sheet with foil or parchment paper.</li><li>Slice chicken into strips and season to coat with taco seasoning. Lightly drizzle with olive oil. Chop all veggies into strips. Drizzle with olive oil and more taco seasoning if desired.</li><li>Place chicken and veggies on a sheet pan and bake at 400 until chicken strips are cooked through and veggies are tender, about 20-25 minutes.</li><li>Remove from the oven and squeeze fresh lime over. Serve in tortillas or over cauliflower rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="shoyu-chicken" data-title="shoyu chicken" data-tags="different-times easy">
 <h3 class="rtitle">Shoyu Chicken</h3>
 <p class="note">Saved from an email</p>
 <h4>Ingredients</h4>
@@ -172,14 +568,153 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Boil the chicken in the dressing-sugar-soy mixture for 30 minutes. Also works in the crock pot.</li><li>Serve over rice. Steamed veggies thrown into the mix are a good addition.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="teriyaki-bowls" data-title="teriyaki bowls">
+<article class="recipe" id="sloppy-joes" data-title="sloppy joes" data-tags="crunch-time easy together">
+<h3 class="rtitle">Sloppy Joes</h3>
+<p class="note">From Kirsten</p>
+<h4>Ingredients</h4>
+<ul><li>1 lb beef</li><li>1/4 c onion, chopped</li><li>1/4 tsp chili powder</li><li>1/4 tsp sage</li><li>1 Tbsp Worcestershire sauce</li><li>1 bay leaf</li><li>1 c ketchup</li></ul>
+<h4>Directions</h4>
+<ol><li>Brown meat and onion together in a skillet.</li><li>Add remaining ingredients and simmer for 30 minutes.</li><li>Serve on hamburger buns.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="southwest-chicken-salad" data-title="southwest chicken salad" data-tags="crunch-time">
+<h3 class="rtitle">Southwest Chicken Salad</h3>
+<p class="note">From Rebecca</p>
+<h4>Ingredients</h4>
+<ul><li>1 1/2 lbs boneless skinless chicken breast halves</li><li>1 package (1.25 oz) taco seasoning (about 1/4 cup)</li><li>1/4 cup oil</li><li>1/4 cup lemon juice</li><li>1/4 cup water</li><li>8 cups torn lettuce</li><li>Suggested toppings: salsa, sour cream, cheese, black olives, avocado, corn, tomatoes</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine taco seasoning with oil, water and lemon juice. Add chicken breasts, turning to coat all sides. Marinate 20 minutes.</li><li>Broil or grill 7-10 min per side or until done. Cut chicken into thin slices.</li><li>Divide lettuce evenly among four large salad plates. Top each serving with 1/2 chicken breast, sliced, and garnish with choice of toppings.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="spaghetti-and-meatballs" data-title="spaghetti and meatballs" data-tags="together">
+<h3 class="rtitle">Spaghetti and Meatballs</h3>
+<p class="note">From Mary</p>
+<h4>Ingredients</h4>
+<ul><li>1 lb. ground beef</li><li>1/2 cup bread crumbs</li><li>1/4 cup ketchup</li><li>1 tsp. onion powder</li><li>1 tablespoon parsley flakes</li><li>1/4 tsp. pepper</li><li>1 egg</li><li>1 - 26 oz. jar of spaghetti sauce</li><li>1 pkg. spaghetti</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix all ingredients together and form into medium size meatballs. Place in a baking pan and cook for 30-35 minutes at 350 degrees.</li><li>Depending on the fat content of the meat, there may be grease in the bottom of the pan. Use a paper towel to blot off the grease as you remove each meatball.</li><li>While the meatballs are cooking, heat up the spaghetti sauce in a sauce pan over low to medium heat. Cook the spaghetti in boiling water.</li><li>Place the meatballs in a large bowl. Pour the hot spaghetti sauce over the meatballs. Serve with spaghetti.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="spicy-baked-chicken" data-title="spicy baked chicken" data-tags="crunch-time easy">
+<h3 class="rtitle">Spicy Baked Chicken</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>1 t kosher salt</li><li>1/2 t black pepper</li><li>1/2 t garlic powder</li><li>1/2 t smoked paprika</li><li>3-4 chicken breasts</li><li>Olive oil</li></ul>
+<h4>Directions</h4>
+<ol><li>Heat oven to 450 degrees. Place chicken breasts on a baking sheet lined with foil. Brush both sides with olive oil.</li><li>Whisk together spices in a bowl, then sprinkle the mixture evenly over the chicken on both sides.</li><li>Bake for 15-18 minutes, or until the chicken is cooked through and no longer pink. Serve warm, or cut into strips and store in the fridge to eat on a salad or in a wrap.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="spicy-chicken-pasta" data-title="spicy chicken pasta" data-tags="crunch-time easy">
+<h3 class="rtitle">Spicy Chicken Pasta</h3>
+<p class="note">From Sara</p>
+<h4>Ingredients</h4>
+<ul><li>Chicken</li><li>Jar of spaghetti sauce (we like Raos)</li><li>Pasta</li><li>Block of cream cheese</li><li>Frozen peas</li><li>Red pepper flakes</li></ul>
+<h4>Directions</h4>
+<ol><li>Cook chicken and pasta according to directions.</li><li>In a skillet combine all ingredients and heat until cream cheese is mixed in.</li><li>Add desired amount of red pepper flakes!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="tater-tot-casserole" data-title="tater tot casserole" data-tags="together">
+<h3 class="rtitle">Tater Tot Casserole</h3>
+<p class="note">From Koni</p>
+<h4>Ingredients</h4>
+<ul><li>1 pound hamburger</li><li>1 medium onion</li><li>32 oz frozen tater tots</li><li>1 can evaporated milk</li><li>1 can cream of chicken soup</li><li>Cheddar cheese (as much or little as you like)</li></ul>
+<h4>Directions</h4>
+<ol><li>Brown hamburger and onion; put in casserole dish.</li><li>Put frozen tater tots on meat mixture. Combine milk and soup and pour over tater tots. Sprinkle cheese over casserole.</li><li>Bake at 350 degrees for 1 hr. Do not cover casserole when baking.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="teriyaki-bowls" data-title="teriyaki bowls" data-tags="crunch-time easy">
 <h3 class="rtitle">Teriyaki Bowls</h3>
 <p class="note">Saved from an email (more a method than a recipe)</p>
 <h4>How to make it</h4>
 <ol><li>Prepare 1 package of Aidell&#x27;s pineapple teriyaki chicken meatballs (Costco carries them).</li><li>Steam or roast whatever veggies you like: broccoli, bell peppers, red onion, mushroom, zucchini, green beans...</li><li>Serve over rice with teriyaki sauce. Pineapple on top is great too.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="tiger-chicken" data-title="tiger chicken" data-tags="">
+<h3 class="rtitle">Tiger Chicken</h3>
+<p class="note">From Monica</p>
+<h4>Ingredients</h4>
+<ul><li>4 boneless chicken breasts cut into 1 inch cubes</li><li>1/2 C. cornstarch</li><li>1 1/2 cups broccoli</li><li>Sauce: 1 1/3 cup water</li><li>1/4 cup sugar</li><li>2 Tbsp soy sauce</li><li>2 Tbsp Tiger sauce</li><li>1/2 t. garlic powder</li><li>2 Tbsp cornstarch</li></ul>
+<h4>Directions</h4>
+<ol><li>Cover chicken breast with cornstarch in a ziplock bag. Then brown in oil. Try to turn only once.</li><li>Pour sauce over chicken and let simmer for 3 minutes or until sauce thickens.</li><li>Add 1 1/2 cups of broccoli. Cover and let steam until broccoli is desired texture. Serve over rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="tostadas-pork-tinga" data-title="tostadas with pork tinga and queso fresco" data-tags="together">
+<h3 class="rtitle">Tostadas with Pork Tinga and Queso Fresco</h3>
+<p class="note">From Staci</p>
+<h4>Ingredients</h4>
+<ul><li>12 (6 inch) corn tortillas</li><li>3/4 C oil salt TOPPING</li><li>2 pounds boneless pork roast, trimmed and cut into 1-‐inch pieces</li><li>2 medium onions (1 quartered, 1 chopped fine)</li><li>5 garlic cloves (3 peeled and smashed, 2 minced)</li><li>4 sprigs fresh thyme Salt</li><li>2 Tbs olive oil</li><li>1/2 tsp dried oregano</li><li>1 (15-‐ounce) can tomato sauce</li><li>1 Tbs minced canned chipotle chile in adobo sauce</li><li>2 bay leaves</li><li>1 acovado, halved, pitted and diced</li><li>4 ounces queso fresco, crumbled (1/2 cup)</li><li>1/4 C fresh cilantro leaves Lime wedges</li></ul>
+<h4>Directions</h4>
+<ol><li>FOR THE</li><li>1. Using fork, poke center of each tortilla 3 or 4 times. Heat oil in 8-‐inch skillet over medium high to 350 degrees. Line baking sheet with several layers of paper towels.</li><li>2. Working with 1 tortilla at a time, add to hot oil and place metal potato masher on top to keep tortilla flat and submerged in oil. Fry until crisp and lightly browned, 45-‐ 60 seconds. Transfer fried tortilla to prepared sheet. Repeat with remaining tortillas. Sprinkle with salt. (Tostadas can be stored at room temperature for up to 24 hours)</li></ol>
+<h4>Directions</h4>
+<ol><li>FOR THE TOPPING</li><li>3. Bring 6 cups water, pork, quartered onion, smashed garlic, thyme sprigs, and 1 teaspoon salt to simmer in large saucepan over medium-‐high heat, skimming off any foam that rises to surface. Reduce heat to medium-‐low, partially cover, and cook until pork is tender,</li><li>1.25 -‐</li><li>1.5 hours.</li><li>4. Drain pork, reserving 1 cup cooking liquid. Discard onion, garlic, and thyme sprigs. Return pork to now-‐empty saucepan and mash into rough 1/2 inch pieces using potato masher. (Pork can be refrigerated up to 2 days.)</li><li>5. Heat oil in 12-‐inch nonstick skillet over medium-‐high heat until shimmering. Add oregano, shredded pork, and chopped onion and cook, stirring often until pork is well browned and crisp, 7-‐10 minutes. Stir in minced garlic and cook until fragrant, about 30 seconds. Stir in tomato sauce, chipotle, bay leaves and reserved pork cooking liquid and simmer until almost evaporated, 5-‐7 minutes. Discard bay leaves and season with salt to taste.</li><li>6. Spoon topping onto center of each tostada. Garnish with avocado, queso fresco, cilantro, and lime wedges and serve.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="waikiki-meatballs" data-title="waikiki meatballs" data-tags="together">
+<h3 class="rtitle">Waikiki Meatballs</h3>
+<p class="note">From Jenn</p>
+<h4>Ingredients</h4>
+<ul><li>1.5 lbs ground beef</li><li>2/3 C cracker or bread crumbs</li><li>1/3 C minced onion</li><li>1 egg</li><li>1.5 t salt</li><li>1/4 t ginger</li><li>1/4 C milk</li><li>1 T oil</li><li>2 T cornstarch</li><li>1 can pineapple tidbits (drain and reserve juice)</li><li>1/2 C brown sugar</li><li>1/3 C vinegar</li><li>1 T soy sauce</li><li>1/3 C chopped bell pepper</li><li>Rice</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix thoroughly: beef, crumbs, onion, egg, salt, ginger and milk. Shape by rounded tablespoons into balls.</li><li>Add oil to skillet. Brown and cook meatballs. Remove from skillet and keep warm. Pour fat from skillet.</li><li>Mix cornstarch and sugar. Stir in reserved pineapple juice, vinegar and soy sauce until smooth. Pour into skillet. Cook over medium heat, stirring constantly until mixture thickens and boils. Boil and stir 1 minute.</li><li>Add meatballs, pineapple tidbits and green pepper. Heat through. Serve over rice.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="winter-chicken-salad" data-title="winter chicken salad" data-tags="easy">
+<h3 class="rtitle">Winter Chicken Salad</h3>
+<p class="note">From Tere</p>
+<h4>Ingredients</h4>
+<ul><li>3 boneless skinless chicken breasts, cooked and cubed</li><li>1 granny Smith or Gala apple, chopped</li><li>1/2 c. chopped celery</li><li>1/2 c. dried sweetened cranberries</li><li>1/2 c. chopped walnuts</li><li>1/2 c. vanilla yogurt</li><li>1 tsp. lemon juice</li><li>1 tsp. sugar</li></ul>
+<h4>Directions</h4>
+<ol><li>Chill chicken in refrigerator at least 30 minutes.</li><li>Combine ingredients in a medium bowl. Serve on a lettuce leaf or use as a filling for sandwiches.</li><li>Makes 6-8 servings.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
 </article></section>
-<section class="catblock" data-cat><h2 class="cathead">Breads</h2><article class="recipe" id="old-fashioned-white-bread" data-title="old fashioned white bread (bread machine)">
+<section class="catblock" data-cat><h2 class="cathead">Sides</h2><article class="recipe" id="blueberry-bbq-sauce" data-title="blueberry bbq sauce" data-tags="easy">
+<h3 class="rtitle">Blueberry BBQ Sauce</h3>
+<p class="note">From Nathan</p>
+<h4>Ingredients</h4>
+<ul><li>1 cup fresh blueberries</li><li>1/4 cup honey</li><li>1/2 cup brown sugar</li><li>1/4 cup molasses</li><li>1 cup ketchup</li><li>1 cup red wine vinegar</li><li>1/2 tsp salt</li><li>1/2 tsp black pepper</li><li>1/2 tsp onion powder</li><li>1/2 tsp garlic powder</li></ul>
+<h4>Directions</h4>
+<ol><li>Blend, then boil.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="toasted-sesame-asian-dressing" data-title="light and creamy toasted sesame asian dressing" data-tags="crunch-time easy">
+<h3 class="rtitle">Light and Creamy Toasted Sesame Asian Dressing</h3>
+<p class="note">From Erin</p>
+<h4>Ingredients</h4>
+<ul><li>3/4 C mayonnaise (I use Best Foods Light)</li><li>1/2 C apple cider vinegar</li><li>1/4 C soy sauce</li><li>3/4 C sugar</li><li>1/2 t salt</li><li>2 T minced garlic</li><li>1/2 C peanuts (dry roasted)</li><li>1/4 t sesame oil</li><li>1 T toasted sesame seeds</li><li>Pinch red pepper flakes</li></ul>
+<h4>Directions</h4>
+<ol><li>Spoon the mayonnaise into your blender. Add the apple cider vinegar, soy sauce, sugar and salt.</li><li>Peel and roughly chop 2 tablespoons of fresh garlic. Add it to the blender. Mix everything together for about 1 minute.</li><li>Add the dry roasted peanuts, cover the blender and let it mix for several minutes, or until the peanuts are finely chopped and have blended in a bit (you will still have a few tiny pieces, that&#x27;s okay).</li><li>Add the sesame oil, toasted sesame seeds, and a pinch of red pepper flakes. Mix just for a few seconds more and you are ready to roll.</li><li>Store in a sealed container in the fridge for up to 1 week. (Time: 10 minutes. Yield: 2 cups.)</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="mediterranean-quinoa-salad" data-title="mediterranean quinoa salad" data-tags="easy together">
+<h3 class="rtitle">Mediterranean Quinoa Salad</h3>
+<p class="note">From Rachel</p>
+<h4>Ingredients</h4>
+<ul><li>1 cup dry quinoa (makes about 3 cups cooked)</li><li>1/3 cup fresh basil</li><li>1 small cucumber</li><li>1/2 cup red onion</li><li>2 or 3 roma tomatoes</li><li>2 Tbsp balsamic vinegar</li><li>2 Tbsp olive oil</li><li>1 tsp Italian seasoning</li><li>1/3 cup lemon vinaigrette (I like Marzetti Simply Dressed)</li><li>1/2 cup feta cheese</li></ul>
+<h4>Directions</h4>
+<ol><li>Cook the quinoa according to package directions. While it’s cooking chop the basil, cucumber, onion and tomatoes and put them together in a medium size bowl. Add the vinegar, olive oil, and Italian seasoning then stir to evenly mix everything. Add the cooked quinoa to the mixture, pour the vinaigrette over the top and stir everything together. Stir in the feta cheese just before</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article></section>
+<section class="catblock" data-cat><h2 class="cathead">Breads</h2><article class="recipe" id="best-ever-banana-bread" data-title="best ever banana bread" data-tags="easy">
+<h3 class="rtitle">Best Ever Banana Bread</h3>
+<p class="note">From Lisa</p>
+<h4>Ingredients</h4>
+<ul><li>2 eggs, beaten</li><li>1/3 cup buttermilk</li><li>1/2 cup vegetable oil</li><li>1 cup mashed bananas</li><li>1 1/2 cups white sugar</li><li>1 3/4 cups all-purpose flour</li><li>1 teaspoon baking soda</li><li>1/2 teaspoon salt</li><li>1/2 cup chopped pecans (optional)</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 325 F (165 C). Spray one 9x5 inch loaf pan with non-stick spray coating.</li><li>Blend together the eggs, buttermilk, oil and bananas.</li><li>Sift together the sugar, flour, baking soda and salt. Add to banana mixture and stir in pecans. Mix well.</li><li>Pour into prepared loaf pan and bake 1 hour and 20 minutes or until a cake tester inserted in the center comes out clean.</li><li>Very good - can substitute applesauce for the oil. Freezes well.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="chocolate-zucchini-bread" data-title="chocolate zucchini bread" data-tags="easy">
+<h3 class="rtitle">Chocolate Zucchini Bread</h3>
+<p class="note">From Caytlin</p>
+<h4>Ingredients</h4>
+<ul><li>3 C grated zucchini</li><li>2 C flour</li><li>2 t cinnamon</li><li>1/2 t salt</li><li>1 1/2 t baking soda</li><li>6 T unsweetened cocoa powder</li><li>1/2 C canola oil</li><li>1 C sugar</li><li>1/4 C brown sugar</li><li>3 eggs</li><li>2 t vanilla</li><li>1/2 C sour cream</li><li>3/4 C mini chocolate chips optional: zest from one orange Topping</li><li>2 T brown sugar</li><li>2 T white sugar</li><li>1/2 t cinnamon</li></ul>
+<h4>Directions</h4>
+<ol><li>1. Preheat oven to 350 degrees. Butter and flour 2 loaf pans and set aside. Set shredded zucchini in a fine mesh strainer over a bowl and set aside. Mix topping</li></ol>
+<h4>Ingredients</h4>
+<ul><li>in a small bowl and set aside. Place flour, cinnamon, baking soda, salt, and cocoa powder in a small bowl and whisk to combine. Set aside.</li><li>2. With a stand or hand mixer beat oil, white sugar, brown sugar, and eggs until combined and slightly fluffy,</li><li>1-‐2 minutes. Add vanilla and sour cream and mix until combined.</li><li>3. Gently press down on zucchini in strainer and discard any excess liquid. Add zucchini to batter (and zest if you&#x27;re using).</li><li>4. Take a spoonful of the flour mixture and stir in with the chocolate chips (that will help keep them evenly distributed.) Add the remaining flour mixture to the batter and stir just until combined.</li><li>5. Divide the batter between the two pans, and sprinkle topping over each. 6. Bake in your preheated</li><li>350 degree oven for 50-‐60 minutes.</li><li>7. Let it cool on a rack for 5-‐10 minutes, then remove from pans.</li></ul>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="old-fashioned-white-bread" data-title="old fashioned white bread (bread machine)" data-tags="">
 <h3 class="rtitle">Old Fashioned White Bread (Bread Machine)</h3>
 <p class="note">Transcribed from a bread machine recipe book page saved in an email</p>
 <h4>Ingredients - 1 lb loaf</h4>
@@ -192,17 +727,180 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 <ol><li>Menu selection: Basic or Super Rapid. Add the ingredients to the bread machine pan in the order your machine&#x27;s manual recommends, and run the Basic (or Super Rapid) cycle.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article></section>
+<section class="catblock" data-cat><h2 class="cathead">Desserts</h2><article class="recipe" id="andes-mint-cookies" data-title="andes mint cookies" data-tags="together">
+<h3 class="rtitle">Andes Mint Cookies</h3>
+<p class="note">From Rachael</p>
+<h4>Ingredients</h4>
+<ul><li>3/4 cup butter</li><li>2 tablespoons water</li><li>1 1/2 cup brown sugar</li><li>2 cups chocolate chips</li><li>2 eggs</li><li>2 1/2 cups flour</li><li>1 1/4 teaspoons baking soda</li><li>2 packages of Andes mints</li></ul>
+<h4>Directions</h4>
+<ol><li>In a saucepan melt butter, sugar and water on low heat. Remove from heat. Add chocolate chips. Stir until they are melted. Pour into a large bowl. Cool for 10 minutes.</li><li>Then add eggs and dry ingredients. Chill for an hour or longer in the fridge.</li><li>Preheat oven at 350. Roll dough into balls and cook for 10 min.</li><li>Remove and place a mint on the top of the cookies right away. Let them sit for a couple of minutes to let the mint soften so that you can swirl it around to frost the cookies. Then let them cool down and eat them.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="baked-chocolate-pudding" data-title="baked chocolate pudding (gluten free!)" data-tags="easy">
+<h3 class="rtitle">Baked Chocolate Pudding (Gluten free!)</h3>
+<p class="note">From Tessa</p>
+<h4>Ingredients</h4>
+<ul><li>8 ounces chocolate chips</li><li>2 c. Scalded cream</li><li>1/4 c. Sugar Pinch of salt</li><li>1 t. Vanilla</li><li>4 eggs</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 325. Put the chocolate chips in a blender. Pour in the scalded cream and blend. Add sugar and eggs one at a time while the mixture whirls. Blend a couple minutes until smooth and shiny. Add salt and vanilla and blend. Pour into a 2 quart baking dish. Bake 60-‐70 minutes until set in the middle. Serve small servings with a dollop of whipped cream and a couple berries on</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="carrot-cake" data-title="carrot cake with cream cheese frosting" data-tags="together">
+<h3 class="rtitle">Carrot Cake with Cream Cheese Frosting</h3>
+<p class="note">From Lisa</p>
+<h4>Ingredients</h4>
+<ul><li>2 C flour</li><li>2 C sugar</li><li>2 Tbsp cinnamon</li><li>2 tsp baking soda</li><li>2 tsp salt</li><li>1 C oil</li><li>4 eggs</li><li>3 C shredded carrots</li><li>Frosting: 1 lb powdered sugar, 1 stick soft butter, 1 8oz package cream cheese (softened), 2 tsp vanilla</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine dry ingredients. Mix in wet ingredients, adding carrots last.</li><li>Pour into greased 9x13 pan and bake 30 min at 375. Use toothpick in center to be sure cake is done.</li><li>For the frosting, whip all the ingredients until blended and fluffy.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="cookie-salad" data-title="cookie salad" data-tags="easy together">
+<h3 class="rtitle">Cookie Salad</h3>
+<p class="note">From Janeen</p>
+<h4>Ingredients</h4>
+<ul><li>2 (3.4 ounce) packages vanilla instant pudding</li><li>2 cups milk</li><li>12 ounce thawed Cool Whip</li><li>1 (20 ounce) can pineapple tidbits, drained</li><li>2 (11 ounce) cans mandarin oranges, drained</li><li>1/2 package fudge strip cooked</li></ul>
+<h4>Directions</h4>
+<ol><li>In a large bowl, mix together pudding and milk. Fold in Cool Whip. Mix in the pineapple tidbits and mandarin oranges. Chill until ready to serve. Crush cookies and mix in just before serving.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="harveys-pecan-pie" data-title="harvey&#x27;s classic southern pecan pie" data-tags="together">
+<h3 class="rtitle">Harvey&#x27;s Classic Southern Pecan Pie</h3>
+<p class="note">From Harvey</p>
+<h4>Ingredients</h4>
+<ul><li>6 eggs, lightly beaten</li><li>1 cup white sugar</li><li>1 cup light brown sugar (packed)</li><li>1 cup dark Karo</li><li>1/2 cup light Karo</li><li>1/2 cup country sugar cane syrup (Roddenberry&#x27;s)</li><li>3/4 stick salted butter, melted</li><li>1/4 tsp salt</li><li>2 teaspoons vanilla extract</li><li>2 1/2 cups pecan halves, coarsely chopped</li><li>2 9-inch deep dish pie crusts</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 350. In your mixer bowl, add Karo syrups, cane syrup, sugars, salt and vanilla. Mix on med-low until sugar is dissolved.</li><li>Add the eggs and butter. Mix on med-low for about five minutes (filling will take on a golden color). Mix in the pecans. The filling might be a little frothy. Let it rest for a few minutes.</li><li>Preheat a half sheet pan or cookie sheet on the center rack. Stir filling just enough to distribute pecans. Using a 1 cup measuring cup, scoop filling from mixing bowl and pour into pie crusts, alternating pies with each scoop so they get even amounts of pecans.</li><li>Place filled pies on the hot sheet pan. Bake about 50 to 60 minutes. Test with a knife inserted halfway between center and edge - it will come out clean but not dry. Cool on wire rack.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="hot-fudge-sauce" data-title="hot fudge sauce" data-tags="crunch-time easy">
+<h3 class="rtitle">Hot Fudge Sauce</h3>
+<p class="note">From Holly</p>
+<h4>Ingredients</h4>
+<ul><li>1 c. chocolate chips</li><li>3/4 cube butter</li><li>2 c. sifted powdered sugar</li><li>1 1/3 c. evaporated milk</li><li>1 tsp. vanilla</li></ul>
+<h4>Directions</h4>
+<ol><li>Melt chocolate and butter on the stove, add butter and milk. Bring to a boil, then lower heat and simmer for 4 minutes until thickened. Remove from heat and add vanilla.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="ice-cream-in-a-bag" data-title="ice cream in a bag" data-tags="together">
+<h3 class="rtitle">Ice Cream in a Bag</h3>
+<p class="note">From Kate</p>
+<h4>Ingredients</h4>
+<ul><li>1 cup half-and-half</li><li>2 Tbsp granulated sugar</li><li>1/2 tsp vanilla</li><li>3 cups ice</li><li>1/3 cup rock salt</li><li>1 sandwich or quart ziplock bag</li><li>1 gallon ziploc bag</li></ul>
+<h4>Directions</h4>
+<ol><li>Combine the half-and-half, sugar, and vanilla in the sandwich/quart-sized ziploc bag. Squeeze out any excess air and FIRMLY seal the bag.</li><li>In the gallon-sized ziploc, combine the ice and salt. Then place the smaller ziploc inside on top of the ice and salt. FIRMLY seal the larger ziploc.</li><li>Squeeze and shake the large ziploc bag until the ice cream in the small bag begins to thicken (about 10 to 15 minutes).</li><li>Remove the small bag and empty your ice cream into a bowl. Top with your favorite ice cream toppings. Enjoy!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="katies-cake" data-title="katie&#x27;s cake" data-tags="together">
+<h3 class="rtitle">Katie&#x27;s Cake</h3>
+<p class="note">From Shilo</p>
+<h4>Ingredients</h4>
+<ul><li>1 3/4 c sifted flour</li><li>2 c sugar</li><li>1 c unsweetened cocoa</li><li>2 tsp baking soda</li><li>1 tsp baking powder</li><li>1 tsp kosher salt (Sift dry</li></ul>
+<h4>Ingredients</h4>
+<ul><li>then make a well in the center for wet ingredients.)</li><li>1 c buttermilk</li><li>2 eggs</li><li>1/2 c canola oil</li><li>1 Tbsp vanilla</li><li>1 tsp almond extract</li></ul>
+<h4>Directions</h4>
+<ol><li>Whisk wet</li></ol>
+<h4>Ingredients</h4>
+<ul><li>within the well then incorporate into dry ingredients. Then add</li><li>1 c. boiling water and whisk. Bake in three round</li><li>8x8, or two rectangular</li><li>9x11 pans. I always use disposable pans. They work better. Spray the pans! Bake at</li><li>350 for 30-‐40 minutes, just until not jiggly. Cool and freeze (easier to frost if frozen). You will need a small jar of your favorite jelly or jam (l like boysenberry). Layer cake, jam, frosting. Frosting recipe</li><li>1 block cream cheese, room temperature</li><li>2 Tbsp butter, room temperature</li><li>1 c powdered sugar</li><li>2 tsp vanilla Beat these together.</li></ul>
+<h4>Directions</h4>
+<ol><li>In a separate bowl: 1 c whipping cream beaten to stiff peaks 1 Tbsp powdered sugar 1 tsp vanilla Fold (but don&#x27;t beat!) the two mixtures together. Enjoy!!!</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="lemonade-cake" data-title="lemonade cake" data-tags="together">
+<h3 class="rtitle">Lemonade Cake</h3>
+<p class="note">From Kate</p>
+<h4>Ingredients</h4>
+<ul><li>1 pkg. Duncan Hines Lemon Cake Mix</li><li>1 pkg. lemon instant pudding</li><li>4 eggs</li><li>1/2 c. softened butter</li><li>1/4 c. sweetened condensed milk</li><li>1/2 tsp. minced lemon peel</li><li>2 T. lemon juice Topping</li><li>2 c. powdered sugar</li><li>1/4 c. dry lemonade mix</li><li>2 T. melted butter</li><li>1/2 c. water</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 350. Prepare pan with shortening and flour. Blend cake mix and everything else until moistened. Continue beating 2 minutes on medium speed. Pour batter in sheet cake pan. Bake 45-‐50 minutes. Remove. Make topping by combining all</li></ol>
+<h4>Ingredients</h4>
+<ul><li>and mix well. Poke several holes in cake and drizzle topping over it.</li></ul>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="perfected-chocolate-chip-cookies" data-title="my perfected chocolate chip cookies" data-tags="together">
+<h3 class="rtitle">My Perfected Chocolate Chip Cookies</h3>
+<p class="note">From Heather</p>
+<h4>Ingredients</h4>
+<ul><li>1 1/8 c flour</li><li>1/4 tsp baking soda</li><li>1/2 tsp salt</li><li>1/2 c shortening</li><li>1/4 c packed brown sugar</li><li>1/2 c sugar</li><li>1 tsp vanilla</li><li>1 egg Chocolate chips (semi sweet)(not milk chocolate. Ew.)</li></ul>
+<h4>Directions</h4>
+<ol><li>Bake 6-‐9 min 350 degrees Here&#x27;s the perfected part: I tripled the batch and it equals out perfectly with one full bag of chocolate chips. Also to get a yummy buttery flavor, I do a cube of butterin place of one of the half cups of shortening. This recipe makes amazing cookies… But I won&#x27;t lie, it makes the world&#x27;s best chocolate chip cookie dough! I highly recommend it on a Friday night paired with pizza and a good chick flick.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="peanut-butter-bars" data-title="peanut butter bars" data-tags="easy together">
+<h3 class="rtitle">Peanut Butter Bars</h3>
+<p class="note">From Allie</p>
+<h4>Ingredients</h4>
+<ul><li>1 cup sugar</li><li>1 cup brown sugar, firmly packed</li><li>1 cup butter</li><li>1 teaspoon vanilla</li><li>2 eggs</li><li>2 1/2 cups peanut butter (divided)</li><li>2 cups oatmeal (not quick)</li><li>2 cups flour</li><li>1 teaspoon baking soda</li><li>1 teaspoon salt Frosting</li><li>1/2 cup margarine or butter, softened</li><li>1/4 cup milk</li><li>1-‐2 teaspoons vanilla (depending on your taste)</li><li>3 tablespoons cocoa</li><li>2-‐3 cups of powdered sugar</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 350 degrees. In a large bowl, cream the sugar, brown sugar, and butter together. Add the vanilla, eggs, and 1 cup peanut butter and stir to combine. Add the remaining</li></ol>
+<h4>Ingredients</h4>
+<ul><li>and mix together. Spread dough on a greased jelly roll pan (18x13x1&quot;). Bake for 15 minutes (until golden brown). While hot spread the other</li><li>1 1/2 cups peanut butter on top</li><li>-‐ it helps to drop spoonfuls all over the top of the bars, then spread after the peanut butter has started to melt. Let cool until the peanut butter has become solid again (I usually throw them in the fridge so they set up faster and so I can eat them sooner!). While cooling, mix together frosting</li></ul>
+<h4>Ingredients</h4>
+<ul><li>with a hand mixer and then spread on top of bars.</li></ul>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="brown-sugar-coconut-oil-cookies" data-title="soft batch brown sugar coconut oil cookies" data-tags="together">
+<h3 class="rtitle">Soft Batch Brown Sugar Coconut Oil Cookies</h3>
+<p class="note">From Anna</p>
+<ul><li>Yield: about 15 medium-‐sized cookies Prep Time</li><li>10 minutes Cook Time</li><li>8 minutes Total Time</li><li>18 minutes</li></ul>
+<h4>Ingredients</h4>
+<ul><li>1/2 cup coconut oil, softened (softened to the consistency of soft butter; not rock hard and not runny or melted, see below)</li><li>1 cup dark brown sugar, packed</li><li>1 large egg</li><li>2 tablespoons vanilla extract (yes tablespoons, not teaspoons), or to taste</li><li>1 tablespoon unsulphered mild to medium molasses (use very dark or Blackstrap at your own risk because its very pungent and bitter for baking)</li><li>1 3/4 cup all-‐purpose flour</li><li>2 teaspoons corn starch</li><li>1 teaspoon baking soda</li><li>1/4 teaspoon salt, optional and to taste</li></ul>
+<h4>Directions</h4>
+<ol><li>To the bowl of a stand mixer fitted with the paddle attachment, combine coconut oil, egg, sugar and beat on medium-‐high speed to cream until light and fluffy, 4 to 5 minutes. Note -‐ Coconut oil should be the consistency of soft butter like you&#x27;d use to cream with sugar and eggs in traditional cookies. If coconut oil is rock hard, microwave it in a small bowl for 5 to 10 seconds or just until it begins to soften. If coconut oil is runny or melted, place it in the freezer momentarily until it firms up. A tiny amount of runniness is fine; it&#x27;s an oil and that happens. But do not use melted or purely liquid coconut oil because you can&#x27;t effectively cream a liquid; it would be like trying to cream liquid butter. Stop, scrape down the of the bowl, add the vanilla, molasses, and beat to incorporate, 1 to 2 minutes. Add the flour, corn starch, baking soda, optional salt, and mix until just combined, about 1 minute. Using a medium cookie scoop, form mounds that are 2 heaping tablespoons in size; or divide dough into approximately 15 to 16 equal-‐sized pieces. Place dough mounds on a large plate, and slightly flatten each mound. Very important to get the dough mounds in the exact shape you want to bake them in because after chilling, flattening or re-‐shaping them is very difficult. Cover with plasticwrap, and refrigerate for at least 2 hours; up to 5 days. Do not bake these cookies with dough that has not been properly chilled because they will spread. Preheat oven to 350°F, line a baking sheet with a Silpat Non-‐Stick Baking Mat, parchment, or spray with cooking spray. Place dough on baking sheet, spaced at least 2 inches apart; I bake a maximum of 8 per sheet. Bake for 8 to 10 minutes, or until tops have just set, even if slightly undercooked, pale, and glossy in the center. They firm up as they cool and I recommend the lower end of the baking range because they taste best when softer. For best results, bake for 8 minutes, with trays rotated once midway through baking. Allow cookies to cool on the baking sheet for 5 to 10 minutes before moving. Store cookies in an airtight container at room temperature for up to 1 week, or in the freezer for up to 3 months. Alternatively, unbaked dough can be stored in an airtight container in the refrigerator for up to 5 days, or in the freezer for up to 3 months, so consider baking only as many cookies as desired and save the remaining dough to be baked in the future when desired.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="strawberry-tartlets" data-title="strawberry tartlets" data-tags="together">
+<h3 class="rtitle">Strawberry Tartlets</h3>
+<p class="note">From Kristen</p>
+<h4>Ingredients</h4>
+<ul><li>24 wonton wrappers</li><li>2 TB butter, melted</li><li>2/3 c. brown sugar</li><li>8 oz. cream cheese</li><li>2 TB honey</li><li>1 TB orange juice</li><li>Fresh strawberries, sliced (20-24)</li><li>Whipping cream</li><li>Fresh mint leaves</li></ul>
+<h4>Directions</h4>
+<ol><li>Brush one side of wonton wrapper with butter. Press buttered side of wonton into shallow bowl of brown sugar to coat it. Press wonton with sugar side up into greased muffin tin.</li><li>Bake 325 for 7-9 minutes or until edges are lightly browned. Remove to wire rack and cool.</li><li>Combine cream cheese, honey, and orange juice. Put about 1 TB into each wonton shell.</li><li>Top with strawberries and garnish with whipped cream and a leaf of mint. (Yield: 24. Even better the next day - just put the strawberries and whipped cream on fresh whenever you eat them.)</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="super-easy-lemon-bars" data-title="super easy lemon bars" data-tags="easy together">
+<h3 class="rtitle">Super Easy Lemon Bars</h3>
+<p class="note">From Phaidra</p>
+<h4>Ingredients - Pastry Base</h4>
+<ul><li>1 cup cold butter, cut in small pieces</li><li>1/2 cup sugar</li><li>2 cups flour</li></ul>
+<h4>Ingredients - Lemon Layer</h4>
+<ul><li>1 1/2 cups sugar</li><li>1/4 cup flour</li><li>4 eggs</li><li>Zest of two lemons, very finely chopped</li><li>Juice of 2 lemons</li></ul>
+<h4>Directions</h4>
+<ol><li>Using a pastry cutter or a food processor, blend together the butter, sugar and flour.</li><li>Press evenly into the bottom of a greased and parchment paper lined 9x13 inch baking pan.</li><li>Bake for 20 to 25 minutes at 350 F (325 F if you are using glass bakeware). The bottom should just be beginning to brown slightly at the top edges.</li><li>For the lemon topping, simply whisk together the sugar, flour, eggs, zest and lemon juice until the sugar is dissolved.</li><li>Allow the topping to sit for about 10 minutes before whisking together well again and pouring over the baked shortbread base.</li><li>Bake at 350 F for about another 20-25 minutes or until the top is slightly browned and the custard appears to be set.</li><li>Cool completely. Sprinkle with icing sugar when cool.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="thai-mangoes-sticky-rice" data-title="thai mangoes and sticky rice" data-tags="easy">
+<h3 class="rtitle">Thai Mangoes and Sticky Rice</h3>
+<p class="note">From Kristen</p>
+<h4>Ingredients</h4>
+<ul><li>2-3 c. sticky rice</li><li>1 can coconut milk</li><li>6 TB sugar (or brown sugar)</li><li>1 1/2 tsp. salt</li><li>2 ripe mangoes</li></ul>
+<h4>Directions</h4>
+<ol><li>Heat the coconut milk. Add sugar and salt and stir well.</li><li>Place sticky rice in serving bowls.</li><li>Cut up the mangoes (about half a mango each serving) and pour coconut mixture over top. Serve warm. (Yields: 4 servings.)</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="unbaked-cookies" data-title="unbaked cookies" data-tags="easy together">
+<h3 class="rtitle">Unbaked Cookies</h3>
+<p class="note">From Michelle</p>
+<h4>Ingredients</h4>
+<ul><li>2 c. sugar</li><li>4 Tbsp. cocoa</li><li>1 cube butter</li><li>1/2 c. milk</li><li>1/2 c. peanut butter</li><li>1 tsp. vanilla</li><li>2 heaping c. oats</li><li>1/2 c. nuts</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix well the sugar, cocoa, butter and milk; bring to a boil, cook 1 minute.</li><li>Add peanut butter and vanilla and beat until smooth.</li><li>Add oats and nuts; drop by spoonfuls on waxed paper.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article></section>
 </div>
 <p class="hidden" id="noresults" style="text-align:center;color:#8a7d6b;">No recipes match that search.</p>
 </div>
 <footer>A little family cookbook, made with love.</footer>
 <script>
 var box=document.getElementById('search');
-box.addEventListener('input',function(){
+var activeTags={};
+function applyFilters(){
   var q=box.value.trim().toLowerCase();
   var any=false;
   document.querySelectorAll('[data-title]').forEach(function(el){
-    var show=!q||el.getAttribute('data-title').indexOf(q)!==-1;
+    var t=el.getAttribute('data-tags')||'';
+    var tagOk=true;
+    for(var k in activeTags){ if(t.indexOf(k)===-1){ tagOk=false; break; } }
+    var show=(!q||el.getAttribute('data-title').indexOf(q)!==-1)&&tagOk;
     el.classList.toggle('hidden',!show);
     if(show&&el.tagName==='LI') any=true;
   });
@@ -210,8 +908,17 @@ box.addEventListener('input',function(){
     var vis=sec.querySelectorAll('[data-title]:not(.hidden)').length>0;
     sec.classList.toggle('hidden',!vis);
   });
-  document.getElementById('noresults').classList.toggle('hidden',any||!q);
+  document.getElementById('noresults').classList.toggle('hidden',any||(!q&&Object.keys(activeTags).length===0));
+}
+box.addEventListener('input',applyFilters);
+document.querySelectorAll('#filters button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-tag');
+    if(activeTags[t]){ delete activeTags[t]; b.classList.remove('active'); }
+    else { activeTags[t]=1; b.classList.add('active'); }
+    applyFilters();
+  });
 });
 </script>
 </body>
-</html>
+  </html>

@@ -21,10 +21,11 @@ section.index li:first-child { border-top:none; }
 section.index a { color:var(--ink); text-decoration:none; font-weight:600; }
 section.index a:active { color:var(--accent); }
 .src { display:block; font-size:.8rem; color:#8a7d6b; font-weight:400; }
-article.recipe { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:16px 0; }
-article.recipe h2 { margin:0 0 4px; font-size:1.3rem; }
+.cathead { font-size:1.25rem; color:var(--accent); margin:26px 4px 6px; }
+article.recipe { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:12px 0; }
+.rtitle { margin:0 0 4px; font-size:1.2rem; }
 .note { color:#8a7d6b; font-size:.85rem; margin:0 0 12px; }
-article.recipe h3 { margin:16px 0 6px; font-size:1rem; color:var(--accent); }
+article.recipe h4 { margin:16px 0 6px; font-size:1rem; color:var(--accent); }
 article.recipe ul, article.recipe ol { margin:0; padding-left:22px; }
 article.recipe li { margin:5px 0; }
 .top { text-align:right; }
@@ -40,164 +41,156 @@ footer { text-align:center; color:#8a7d6b; font-size:.8rem; padding:20px 0 40px;
 </header>
 <div class="wrap">
 <input id="search" type="search" placeholder="Search recipes..." autocomplete="off">
-<section class="index" id="written-index">
-<h2>Written-out family recipes</h2>
-<ul>
-<li data-title="beef stroganoff"><a href="#beef-stroganoff">Beef Stroganoff</a></li>
-<li data-title="bruschetta chicken bake"><a href="#bruschetta-chicken-bake">Bruschetta Chicken Bake</a></li>
-<li data-title="creamy taco soup"><a href="#creamy-taco-soup">Creamy Taco Soup</a></li>
-<li data-title="grilled lime coconut chicken with coconut rice"><a href="#grilled-lime-coconut-chicken">Grilled Lime Coconut Chicken with Coconut Rice</a></li>
-<li data-title="italian beef"><a href="#italian-beef">Italian Beef</a></li>
-<li data-title="italian sausage sheet pan dinner"><a href="#italian-sausage-sheet-pan">Italian Sausage Sheet Pan Dinner</a></li>
-<li data-title="korean ground beef and rice bowls"><a href="#korean-ground-beef-bowls">Korean Ground Beef and Rice Bowls</a></li>
-<li data-title="old fashioned white bread (bread machine)"><a href="#old-fashioned-white-bread">Old Fashioned White Bread (Bread Machine)</a></li>
-<li data-title="pesto chicken"><a href="#pesto-chicken">Pesto Chicken</a></li>
-<li data-title="shoyu chicken"><a href="#shoyu-chicken">Shoyu Chicken</a></li>
-<li data-title="taco soup"><a href="#taco-soup">Taco Soup</a></li>
-<li data-title="teriyaki bowls"><a href="#teriyaki-bowls">Teriyaki Bowls</a></li>
-</ul>
-</section>
-<section class="index" id="linked-index">
-<h2>Linked recipes</h2>
-<ul>
-<li data-title="apple almond quinoa with maple sausage"><a href="http://iowagirleats.com/2012/10/30/apple-almond-quinoa-with-maple-sausage/" target="_blank" rel="noopener">Apple Almond Quinoa with Maple Sausage</a><span class="src">iowagirleats.com</span></li>
-<li data-title="bacon cheddar scones"><a href="https://www.annies-eats.com/2010/04/08/bacon-cheddar-scones/" target="_blank" rel="noopener">Bacon Cheddar Scones</a><span class="src">annies-eats.com</span></li>
-<li data-title="chicken with lime sauce"><a href="http://www.myrecipes.com/recipe/chicken-with-lime-sauce-10000001173801/" target="_blank" rel="noopener">Chicken with Lime Sauce</a><span class="src">myrecipes.com</span></li>
+<div id="toc">
+<section class="index" data-cat><h2>Breakfast</h2><ul><li data-title="apple almond quinoa with maple sausage"><a href="http://iowagirleats.com/2012/10/30/apple-almond-quinoa-with-maple-sausage/" target="_blank" rel="noopener">Apple Almond Quinoa with Maple Sausage</a><span class="src">iowagirleats.com</span></li>
 <li data-title="coconut almond breakfast quinoa"><a href="http://www.ourbestbites.com/2013/06/coconut-almond-breakfast-quinoa/" target="_blank" rel="noopener">Coconut Almond Breakfast Quinoa</a><span class="src">ourbestbites.com</span></li>
-<li data-title="creamy corn chowder"><a href="http://www.ourbestbites.com/2008/09/creamy-corn-chowder/" target="_blank" rel="noopener">Creamy Corn Chowder</a><span class="src">ourbestbites.com</span></li>
+<li data-title="fluffy pancakes"><a href="https://www.allrecipes.com/recipe/162760/fluffy-pancakes" target="_blank" rel="noopener">Fluffy Pancakes</a><span class="src">allrecipes.com</span></li></ul></section>
+<section class="index" data-cat><h2>Appetizers</h2><ul><li data-title="greek dip platter"><a href="http://iowagirleats.com/2012/07/09/no-heat-required-greek-dip-platter/" target="_blank" rel="noopener">Greek Dip Platter</a><span class="src">iowagirleats.com</span></li>
+<li data-title="mini ham and cheese quinoa cups"><a href="http://iowagirleats.com/2012/02/16/mini-ham-cheese-quinoa-cups/" target="_blank" rel="noopener">Mini Ham and Cheese Quinoa Cups</a><span class="src">iowagirleats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Soups</h2><ul><li data-title="creamy taco soup"><a href="#creamy-taco-soup">Creamy Taco Soup</a><span class="src">written out below</span></li>
+<li data-title="taco soup"><a href="#taco-soup">Taco Soup</a><span class="src">written out below</span></li>
+<li data-title="creamy corn chowder"><a href="http://www.ourbestbites.com/2008/09/creamy-corn-chowder/" target="_blank" rel="noopener">Creamy Corn Chowder</a><span class="src">ourbestbites.com</span></li></ul></section>
+<section class="index" data-cat><h2>Main Courses</h2><ul><li data-title="beef stroganoff"><a href="#beef-stroganoff">Beef Stroganoff</a><span class="src">written out below</span></li>
+<li data-title="bruschetta chicken bake"><a href="#bruschetta-chicken-bake">Bruschetta Chicken Bake</a><span class="src">written out below</span></li>
+<li data-title="grilled lime coconut chicken with coconut rice"><a href="#grilled-lime-coconut-chicken">Grilled Lime Coconut Chicken with Coconut Rice</a><span class="src">written out below</span></li>
+<li data-title="italian beef"><a href="#italian-beef">Italian Beef</a><span class="src">written out below</span></li>
+<li data-title="italian sausage sheet pan dinner"><a href="#italian-sausage-sheet-pan">Italian Sausage Sheet Pan Dinner</a><span class="src">written out below</span></li>
+<li data-title="korean ground beef and rice bowls"><a href="#korean-ground-beef-bowls">Korean Ground Beef and Rice Bowls</a><span class="src">written out below</span></li>
+<li data-title="pesto chicken"><a href="#pesto-chicken">Pesto Chicken</a><span class="src">written out below</span></li>
+<li data-title="shoyu chicken"><a href="#shoyu-chicken">Shoyu Chicken</a><span class="src">written out below</span></li>
+<li data-title="teriyaki bowls"><a href="#teriyaki-bowls">Teriyaki Bowls</a><span class="src">written out below</span></li>
+<li data-title="chicken with lime sauce"><a href="http://www.myrecipes.com/recipe/chicken-with-lime-sauce-10000001173801/" target="_blank" rel="noopener">Chicken with Lime Sauce</a><span class="src">myrecipes.com</span></li>
 <li data-title="easy lasagna"><a href="https://web.archive.org/web/20121229122050/http://purposefulfood.com/easy-lasagna/" target="_blank" rel="noopener">Easy Lasagna</a><span class="src">purposefulfood.com (archived)</span></li>
-<li data-title="fluffy pancakes"><a href="https://www.allrecipes.com/recipe/162760/fluffy-pancakes" target="_blank" rel="noopener">Fluffy Pancakes</a><span class="src">allrecipes.com</span></li>
-<li data-title="french bread rolls"><a href="https://www.melskitchencafe.com/french-bread-rolls/" target="_blank" rel="noopener">French Bread Rolls</a><span class="src">melskitchencafe.com</span></li>
-<li data-title="greek dip platter"><a href="http://iowagirleats.com/2012/07/09/no-heat-required-greek-dip-platter/" target="_blank" rel="noopener">Greek Dip Platter</a><span class="src">iowagirleats.com</span></li>
-<li data-title="honey jalapeno cornbread"><a href="http://iowagirleats.com/2012/12/17/honey-jalapeno-cornbread/" target="_blank" rel="noopener">Honey Jalapeno Cornbread</a><span class="src">iowagirleats.com</span></li>
-<li data-title="key lime cheesecake"><a href="http://allrecipes.com/recipe/7441/key-lime-cheesecake-i/" target="_blank" rel="noopener">Key Lime Cheesecake</a><span class="src">allrecipes.com</span></li>
-<li data-title="little quinoa patties"><a href="http://www.melskitchencafe.com/2012/10/little-quinoa-patties.html" target="_blank" rel="noopener">Little Quinoa Patties</a><span class="src">melskitchencafe.com</span></li>
-<li data-title="mini ham and cheese quinoa cups"><a href="http://iowagirleats.com/2012/02/16/mini-ham-cheese-quinoa-cups/" target="_blank" rel="noopener">Mini Ham and Cheese Quinoa Cups</a><span class="src">iowagirleats.com</span></li>
-<li data-title="no-bake chewy granola bars"><a href="http://www.mykitchenescapades.com/2014/03/no-bake-chewy-granola-bars-revised.html" target="_blank" rel="noopener">No-Bake Chewy Granola Bars</a><span class="src">mykitchenescapades.com</span></li>
-<li data-title="perfect pizza crust"><a href="http://www.annies-eats.com/2008/08/15/perfect-pizza-crust/" target="_blank" rel="noopener">Perfect Pizza Crust</a><span class="src">annies-eats.com</span></li>
 <li data-title="pernil asado"><a href="https://www.washingtonpost.com/recipes/pernil-asado/16266/" target="_blank" rel="noopener">Pernil Asado</a><span class="src">washingtonpost.com</span></li>
 <li data-title="pesto baked chicken"><a href="https://web.archive.org/web/20190913192955/http://www.thesisterscafe.com/2011/02/pesto-baked-chicken" target="_blank" rel="noopener">Pesto Baked Chicken</a><span class="src">thesisterscafe.com (archived)</span></li>
 <li data-title="pesto ranch crock pot chicken"><a href="http://picky-palate.com/2012/09/20/pesto-ranch-crock-pot-chicken-thighs/" target="_blank" rel="noopener">Pesto Ranch Crock Pot Chicken</a><span class="src">picky-palate.com</span></li>
-<li data-title="raspberry sauce"><a href="http://allrecipes.com/recipe/142149/raspberry-sauce/" target="_blank" rel="noopener">Raspberry Sauce</a><span class="src">allrecipes.com</span></li>
 <li data-title="shrimp pasta with oven-dried tomatoes"><a href="http://www.annies-eats.com/2011/10/05/shrimp-pasta-with-oven-dried-tomatoes/" target="_blank" rel="noopener">Shrimp Pasta with Oven-Dried Tomatoes</a><span class="src">annies-eats.com</span></li>
-<li data-title="soul sweet taters"><a href="http://thepioneerwoman.com/cooking/2010/10/soul-sweet-taters-step-by-step-recipe/" target="_blank" rel="noopener">Soul Sweet Taters</a><span class="src">thepioneerwoman.com</span></li>
 <li data-title="southwest stuffed bell peppers"><a href="http://www.ourbestbites.com/2011/01/southwest-stuffed-bell-peppers/" target="_blank" rel="noopener">Southwest Stuffed Bell Peppers</a><span class="src">ourbestbites.com</span></li>
-<li data-title="thai peanut chicken quinoa bowls"><a href="http://iowagirleats.com/2014/01/06/thai-peanut-chicken-quinoa-bowls/" target="_blank" rel="noopener">Thai Peanut Chicken Quinoa Bowls</a><span class="src">iowagirleats.com</span></li>
-</ul>
-</section>
+<li data-title="thai peanut chicken quinoa bowls"><a href="http://iowagirleats.com/2014/01/06/thai-peanut-chicken-quinoa-bowls/" target="_blank" rel="noopener">Thai Peanut Chicken Quinoa Bowls</a><span class="src">iowagirleats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Sides</h2><ul><li data-title="little quinoa patties"><a href="http://www.melskitchencafe.com/2012/10/little-quinoa-patties.html" target="_blank" rel="noopener">Little Quinoa Patties</a><span class="src">melskitchencafe.com</span></li>
+<li data-title="soul sweet taters"><a href="http://thepioneerwoman.com/cooking/2010/10/soul-sweet-taters-step-by-step-recipe/" target="_blank" rel="noopener">Soul Sweet Taters</a><span class="src">thepioneerwoman.com</span></li></ul></section>
+<section class="index" data-cat><h2>Breads</h2><ul><li data-title="old fashioned white bread (bread machine)"><a href="#old-fashioned-white-bread">Old Fashioned White Bread (Bread Machine)</a><span class="src">written out below</span></li>
+<li data-title="bacon cheddar scones"><a href="https://www.annies-eats.com/2010/04/08/bacon-cheddar-scones/" target="_blank" rel="noopener">Bacon Cheddar Scones</a><span class="src">annies-eats.com</span></li>
+<li data-title="french bread rolls"><a href="https://www.melskitchencafe.com/french-bread-rolls/" target="_blank" rel="noopener">French Bread Rolls</a><span class="src">melskitchencafe.com</span></li>
+<li data-title="honey jalapeno cornbread"><a href="http://iowagirleats.com/2012/12/17/honey-jalapeno-cornbread/" target="_blank" rel="noopener">Honey Jalapeno Cornbread</a><span class="src">iowagirleats.com</span></li>
+<li data-title="perfect pizza crust"><a href="http://www.annies-eats.com/2008/08/15/perfect-pizza-crust/" target="_blank" rel="noopener">Perfect Pizza Crust</a><span class="src">annies-eats.com</span></li></ul></section>
+<section class="index" data-cat><h2>Desserts</h2><ul><li data-title="key lime cheesecake"><a href="http://allrecipes.com/recipe/7441/key-lime-cheesecake-i/" target="_blank" rel="noopener">Key Lime Cheesecake</a><span class="src">allrecipes.com</span></li>
+<li data-title="no-bake chewy granola bars"><a href="http://www.mykitchenescapades.com/2014/03/no-bake-chewy-granola-bars-revised.html" target="_blank" rel="noopener">No-Bake Chewy Granola Bars</a><span class="src">mykitchenescapades.com</span></li>
+<li data-title="raspberry sauce"><a href="http://allrecipes.com/recipe/142149/raspberry-sauce/" target="_blank" rel="noopener">Raspberry Sauce</a><span class="src">allrecipes.com</span></li></ul></section>
+</div>
 <div id="recipes">
-<article class="recipe" id="grilled-lime-coconut-chicken" data-title="grilled lime coconut chicken with coconut rice">
-<h2>Grilled Lime Coconut Chicken with Coconut Rice</h2>
-<p class="note">Saved from an email; originally from melskitchencafe.com</p>
-<h3>Ingredients - Chicken and Marinade/Sauce</h3>
-<ul><li>3 tablespoons oil</li><li>Zest and juice of 1 lime</li><li>1 teaspoon ground cumin</li><li>1 1/2 teaspoons ground coriander</li><li>2 tablespoons low-sodium soy sauce</li><li>1 1/2 teaspoons salt</li><li>2 tablespoons sugar</li><li>2 teaspoons curry powder</li><li>1/2 cup canned coconut milk, light or regular</li><li>Pinch cayenne pepper</li><li>2 pounds boneless, skinless chicken breasts</li><li>1/4 cup chopped fresh cilantro</li><li>Fresh limes, cut into wedges</li></ul>
-<h3>Ingredients - Coconut Rice</h3>
-<ul><li>1 cup jasmine rice</li><li>1 cup canned coconut milk, light or regular</li><li>1 cup water</li><li>1/2 teaspoon salt</li></ul>
-<h3>Directions</h3>
-<ol><li>Whisk together the oil, lime zest, lime juice, cumin, coriander, soy sauce, salt, sugar, curry powder, coconut milk, and cayenne pepper. Place the chicken in a large ziploc bag, pour the marinade over, seal, and refrigerate at least 2 hours and up to 8 hours.</li><li>For the coconut rice, bring the rice, coconut milk, water and salt to a simmer in a medium saucepan. Cover, reduce the heat to low and simmer 15-16 minutes until the liquid is mostly evaporated. Remove from the heat and let stand 10 minutes before fluffing with a fork.</li><li>Preheat a charcoal or gas grill to medium-high. Grill the chicken 6-7 minutes per side, depending on thickness. While the chicken cooks, pour the marinade into a saucepan, bring to a rolling boil and boil 10 minutes, stirring occasionally.</li><li>Plate the chicken, drizzle with sauce (reserve the rest to serve separately), sprinkle with fresh cilantro, and serve with lime wedges and extra sauce.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="beef-stroganoff" data-title="beef stroganoff">
-<h2>Beef Stroganoff</h2>
+<section class="catblock" data-cat><h2 class="cathead">Soups</h2><article class="recipe" id="creamy-taco-soup" data-title="creamy taco soup">
+<h3 class="rtitle">Creamy Taco Soup</h3>
 <p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
-<ul><li>1 pound ground beef</li><li>1 clove garlic</li><li>1 cup sliced mushrooms (or one small can)</li><li>1 chopped onion</li><li>1 can cream of mushroom soup</li><li>1/2 container sour cream</li><li>Salt &amp; pepper</li></ul>
-<h3>Directions</h3>
-<ol><li>Saute the beef, garlic, onions and mushrooms together; salt and pepper to taste. Add the soup and simmer. Add the sour cream. Serve over egg noodles cooked in chicken broth - also great over baked potatoes.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="bruschetta-chicken-bake" data-title="bruschetta chicken bake">
-<h2>Bruschetta Chicken Bake</h2>
-<p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
-<ul><li>1 can diced tomatoes, undrained</li><li>1 pkg stuffing mix (like Stove Top)</li><li>1/2 cup water</li><li>2 cloves garlic, minced</li><li>1 1/2 lb chicken, cut into bite-sized pieces</li><li>1 tsp dried basil</li><li>1 cup shredded mozzarella</li></ul>
-<h3>Directions</h3>
-<ol><li>Heat oven to 400 F. Mix the tomatoes, dry stuffing mix, water and garlic just until the stuffing mix is moistened.</li><li>Layer the chicken, basil, cheese and stuffing in a 9x13 baking dish.</li><li>Bake 30 minutes or until the chicken is cooked through.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="italian-sausage-sheet-pan" data-title="italian sausage sheet pan dinner">
-<h2>Italian Sausage Sheet Pan Dinner</h2>
-<p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
-<ul><li>1 16-ounce package fully cooked Italian chicken sausages</li><li>1 small red onion, peeled, halved, and sliced</li><li>1 medium zucchini or yellow squash, halved and sliced</li><li>1 large handful baby peppers, tops removed and halved</li><li>1 large handful baby portobella mushrooms, quartered</li><li>4 cloves garlic</li><li>1/4 cup extra-virgin olive oil</li><li>1 tablespoon Italian seasoning</li><li>1/2 teaspoon kosher salt</li><li>Pinch red pepper flakes (optional)</li><li>Freshly grated parmesan cheese for serving</li></ul>
-<h3>Directions</h3>
-<ol><li>Preheat oven to 425 F. Line a baking sheet with aluminum foil.</li><li>Cut each sausage into 4 pieces. Place on the baking sheet. Add the sliced onion, zucchini, peppers, and mushrooms and toss to evenly distribute.</li><li>In a small bowl, whisk together the Italian seasoning, garlic, oil, salt, and red pepper flakes. Drizzle over the veggies and toss to combine.</li><li>Bake 20 minutes, stirring halfway through. Sprinkle with freshly grated parmesan and serve immediately.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="korean-ground-beef-bowls" data-title="korean ground beef and rice bowls">
-<h2>Korean Ground Beef and Rice Bowls</h2>
-<p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
-<ul><li>1 pound lean ground beef (90% lean)</li><li>3 garlic cloves, minced</li><li>1/4 cup packed brown sugar</li><li>1/4 cup reduced-sodium soy sauce</li><li>2 teaspoons sesame oil</li><li>1/4 teaspoon ground ginger</li><li>1/4 teaspoon crushed red pepper flakes</li><li>1/4 teaspoon pepper</li><li>2 cups hot cooked white or brown rice</li><li>Sliced green onions and sesame seeds for garnish</li></ul>
-<h3>Directions</h3>
-<ol><li>In a large skillet, cook the ground beef and garlic over medium heat, breaking it into crumbles, until no longer pink.</li><li>In a small bowl whisk the brown sugar, soy sauce, sesame oil, ginger, red pepper flakes and pepper. Pour over the beef and simmer another minute or two.</li><li>Serve over hot rice and garnish with green onions and sesame seeds.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="italian-beef" data-title="italian beef">
-<h2>Italian Beef</h2>
-<p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
-<ul><li>4-5 lbs boneless beef chuck roast (butcher twine removed)</li><li>2 cups water</li><li>2/3 ounce Italian seasoning mix (1 packet Good Seasons)</li><li>2 teaspoons salt</li><li>2 teaspoons black pepper</li><li>2 teaspoons oregano</li><li>2 teaspoons basil</li><li>2 teaspoons onion powder</li><li>2 teaspoons dried parsley</li><li>2 teaspoons garlic powder</li><li>2 teaspoons red pepper flakes (or to taste)</li><li>2 bay leaves</li></ul>
-<h3>Directions</h3>
-<ol><li>Mix all ingredients (except the roast) in a large crockpot. Place the roast in and cook on low 8-10 hours, until fork tender.</li><li>Remove the beef and shred with two forks. Add back to the juices and enjoy.</li><li>For traditional Chicago-style, pile high on a crusty roll with provolone slices and chopped giardiniera.</li></ol>
-<p class="top"><a href="#top">Back to top</a></p>
-</article>
-<article class="recipe" id="creamy-taco-soup" data-title="creamy taco soup">
-<h2>Creamy Taco Soup</h2>
-<p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
+<h4>Ingredients</h4>
 <ul><li>1 pound lean ground beef</li><li>1/2 red bell pepper, chopped</li><li>2 (10 fl oz) cans Ro-tel diced tomatoes &amp; green chilies, with juices</li><li>4 cups chicken broth</li><li>1 teaspoon garlic powder</li><li>1 teaspoon onion powder</li><li>1 teaspoon ground cumin</li><li>1 teaspoon smoked paprika</li><li>1/2 tablespoon chili powder</li><li>1 (12 fl oz) can corn, drained</li><li>1 (15 fl oz) can black beans, drained &amp; rinsed</li><li>1 (8 oz) block cream cheese</li><li>Salt &amp; pepper to taste</li><li>Optional toppings: grated cheddar, avocado, cilantro, tortilla strips</li></ul>
-<h3>Directions</h3>
+<h4>Directions</h4>
 <ol><li>Take the cream cheese out of the fridge an hour ahead to soften, or microwave it 20-30 seconds.</li><li>Brown the ground beef in a large soup pot over medium-high heat; spoon out excess fat.</li><li>Add everything except the cream cheese and salt &amp; pepper. Bring to a boil, then turn down to a gentle simmer for 8 minutes. Prep toppings while it cooks.</li><li>Cut the cream cheese into smaller pieces and add to the soup, stirring until fully melted in. Season with salt &amp; pepper and serve with toppings.</li></ol>
-<h3>Notes</h3>
+<h4>Notes</h4>
 <ul><li>Beef broth works instead of chicken broth (darker color). Use low-salt broth if watching salt.</li><li>For a spicy version add 1/2 teaspoon cayenne pepper.</li><li>If not using Ro-tel, use regular diced tomatoes plus a can or two of diced green chilies (4 oz size).</li></ul>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
 <article class="recipe" id="taco-soup" data-title="taco soup">
-<h2>Taco Soup</h2>
+<h3 class="rtitle">Taco Soup</h3>
 <p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
+<h4>Ingredients</h4>
 <ul><li>1-2 lb ground chuck, browned</li><li>28 oz can crushed tomatoes or tomato sauce</li><li>14 oz can Rotel tomatoes with green chiles</li><li>1 can corn with juice</li><li>1 cup water</li><li>1 cup salsa</li><li>1 pkg taco seasoning (or 2 if you use 2 lb meat)</li><li>1 pkg Hidden Valley ranch dressing mix</li><li>1 can chili beans</li><li>1 can kidney beans, drained</li><li>1 can any other beans (black, garbanzo, pinto - anything)</li><li>1 chopped onion, if desired</li></ul>
-<h3>Directions</h3>
+<h4>Directions</h4>
 <ol><li>Brown the meat and onion, drain, add all the other ingredients, and simmer.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
+</article></section>
+<section class="catblock" data-cat><h2 class="cathead">Main Courses</h2><article class="recipe" id="beef-stroganoff" data-title="beef stroganoff">
+<h3 class="rtitle">Beef Stroganoff</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1 pound ground beef</li><li>1 clove garlic</li><li>1 cup sliced mushrooms (or one small can)</li><li>1 chopped onion</li><li>1 can cream of mushroom soup</li><li>1/2 container sour cream</li><li>Salt &amp; pepper</li></ul>
+<h4>Directions</h4>
+<ol><li>Saute the beef, garlic, onions and mushrooms together; salt and pepper to taste. Add the soup and simmer. Add the sour cream. Serve over egg noodles cooked in chicken broth - also great over baked potatoes.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="teriyaki-bowls" data-title="teriyaki bowls">
-<h2>Teriyaki Bowls</h2>
-<p class="note">Saved from an email (more a method than a recipe)</p>
-<h3>How to make it</h3>
-<ol><li>Prepare 1 package of Aidell&#x27;s pineapple teriyaki chicken meatballs (Costco carries them).</li><li>Steam or roast whatever veggies you like: broccoli, bell peppers, red onion, mushroom, zucchini, green beans...</li><li>Serve over rice with teriyaki sauce. Pineapple on top is great too.</li></ol>
+<article class="recipe" id="bruschetta-chicken-bake" data-title="bruschetta chicken bake">
+<h3 class="rtitle">Bruschetta Chicken Bake</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1 can diced tomatoes, undrained</li><li>1 pkg stuffing mix (like Stove Top)</li><li>1/2 cup water</li><li>2 cloves garlic, minced</li><li>1 1/2 lb chicken, cut into bite-sized pieces</li><li>1 tsp dried basil</li><li>1 cup shredded mozzarella</li></ul>
+<h4>Directions</h4>
+<ol><li>Heat oven to 400 F. Mix the tomatoes, dry stuffing mix, water and garlic just until the stuffing mix is moistened.</li><li>Layer the chicken, basil, cheese and stuffing in a 9x13 baking dish.</li><li>Bake 30 minutes or until the chicken is cooked through.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="grilled-lime-coconut-chicken" data-title="grilled lime coconut chicken with coconut rice">
+<h3 class="rtitle">Grilled Lime Coconut Chicken with Coconut Rice</h3>
+<p class="note">Saved from an email; originally from melskitchencafe.com</p>
+<h4>Ingredients - Chicken and Marinade/Sauce</h4>
+<ul><li>3 tablespoons oil</li><li>Zest and juice of 1 lime</li><li>1 teaspoon ground cumin</li><li>1 1/2 teaspoons ground coriander</li><li>2 tablespoons low-sodium soy sauce</li><li>1 1/2 teaspoons salt</li><li>2 tablespoons sugar</li><li>2 teaspoons curry powder</li><li>1/2 cup canned coconut milk, light or regular</li><li>Pinch cayenne pepper</li><li>2 pounds boneless, skinless chicken breasts</li><li>1/4 cup chopped fresh cilantro</li><li>Fresh limes, cut into wedges</li></ul>
+<h4>Ingredients - Coconut Rice</h4>
+<ul><li>1 cup jasmine rice</li><li>1 cup canned coconut milk, light or regular</li><li>1 cup water</li><li>1/2 teaspoon salt</li></ul>
+<h4>Directions</h4>
+<ol><li>Whisk together the oil, lime zest, lime juice, cumin, coriander, soy sauce, salt, sugar, curry powder, coconut milk, and cayenne pepper. Place the chicken in a large ziploc bag, pour the marinade over, seal, and refrigerate at least 2 hours and up to 8 hours.</li><li>For the coconut rice, bring the rice, coconut milk, water and salt to a simmer in a medium saucepan. Cover, reduce the heat to low and simmer 15-16 minutes until the liquid is mostly evaporated. Remove from the heat and let stand 10 minutes before fluffing with a fork.</li><li>Preheat a charcoal or gas grill to medium-high. Grill the chicken 6-7 minutes per side, depending on thickness. While the chicken cooks, pour the marinade into a saucepan, bring to a rolling boil and boil 10 minutes, stirring occasionally.</li><li>Plate the chicken, drizzle with sauce (reserve the rest to serve separately), sprinkle with fresh cilantro, and serve with lime wedges and extra sauce.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="italian-beef" data-title="italian beef">
+<h3 class="rtitle">Italian Beef</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>4-5 lbs boneless beef chuck roast (butcher twine removed)</li><li>2 cups water</li><li>2/3 ounce Italian seasoning mix (1 packet Good Seasons)</li><li>2 teaspoons salt</li><li>2 teaspoons black pepper</li><li>2 teaspoons oregano</li><li>2 teaspoons basil</li><li>2 teaspoons onion powder</li><li>2 teaspoons dried parsley</li><li>2 teaspoons garlic powder</li><li>2 teaspoons red pepper flakes (or to taste)</li><li>2 bay leaves</li></ul>
+<h4>Directions</h4>
+<ol><li>Mix all ingredients (except the roast) in a large crockpot. Place the roast in and cook on low 8-10 hours, until fork tender.</li><li>Remove the beef and shred with two forks. Add back to the juices and enjoy.</li><li>For traditional Chicago-style, pile high on a crusty roll with provolone slices and chopped giardiniera.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="italian-sausage-sheet-pan" data-title="italian sausage sheet pan dinner">
+<h3 class="rtitle">Italian Sausage Sheet Pan Dinner</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1 16-ounce package fully cooked Italian chicken sausages</li><li>1 small red onion, peeled, halved, and sliced</li><li>1 medium zucchini or yellow squash, halved and sliced</li><li>1 large handful baby peppers, tops removed and halved</li><li>1 large handful baby portobella mushrooms, quartered</li><li>4 cloves garlic</li><li>1/4 cup extra-virgin olive oil</li><li>1 tablespoon Italian seasoning</li><li>1/2 teaspoon kosher salt</li><li>Pinch red pepper flakes (optional)</li><li>Freshly grated parmesan cheese for serving</li></ul>
+<h4>Directions</h4>
+<ol><li>Preheat oven to 425 F. Line a baking sheet with aluminum foil.</li><li>Cut each sausage into 4 pieces. Place on the baking sheet. Add the sliced onion, zucchini, peppers, and mushrooms and toss to evenly distribute.</li><li>In a small bowl, whisk together the Italian seasoning, garlic, oil, salt, and red pepper flakes. Drizzle over the veggies and toss to combine.</li><li>Bake 20 minutes, stirring halfway through. Sprinkle with freshly grated parmesan and serve immediately.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article>
+<article class="recipe" id="korean-ground-beef-bowls" data-title="korean ground beef and rice bowls">
+<h3 class="rtitle">Korean Ground Beef and Rice Bowls</h3>
+<p class="note">Saved from an email</p>
+<h4>Ingredients</h4>
+<ul><li>1 pound lean ground beef (90% lean)</li><li>3 garlic cloves, minced</li><li>1/4 cup packed brown sugar</li><li>1/4 cup reduced-sodium soy sauce</li><li>2 teaspoons sesame oil</li><li>1/4 teaspoon ground ginger</li><li>1/4 teaspoon crushed red pepper flakes</li><li>1/4 teaspoon pepper</li><li>2 cups hot cooked white or brown rice</li><li>Sliced green onions and sesame seeds for garnish</li></ul>
+<h4>Directions</h4>
+<ol><li>In a large skillet, cook the ground beef and garlic over medium heat, breaking it into crumbles, until no longer pink.</li><li>In a small bowl whisk the brown sugar, soy sauce, sesame oil, ginger, red pepper flakes and pepper. Pour over the beef and simmer another minute or two.</li><li>Serve over hot rice and garnish with green onions and sesame seeds.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
 <article class="recipe" id="pesto-chicken" data-title="pesto chicken">
-<h2>Pesto Chicken</h2>
+<h3 class="rtitle">Pesto Chicken</h3>
 <p class="note">Saved from an email (more a method than a recipe)</p>
-<h3>How to make it</h3>
+<h4>How to make it</h4>
 <ol><li>Season chicken breasts with Montreal seasoning (or whatever you like) and grill.</li><li>Chop into bite-sized pieces and toss in pesto - the Kirkland brand from Costco is really good.</li><li>Serve with rice and a veggie like roasted or steamed broccoli or green beans.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
 <article class="recipe" id="shoyu-chicken" data-title="shoyu chicken">
-<h2>Shoyu Chicken</h2>
+<h3 class="rtitle">Shoyu Chicken</h3>
 <p class="note">Saved from an email</p>
-<h3>Ingredients</h3>
+<h4>Ingredients</h4>
 <ul><li>1 part Italian dressing</li><li>1/2 part sugar</li><li>1/2 part soy sauce</li><li>Chicken (the original calls for thighs; breasts work great)</li></ul>
-<h3>Directions</h3>
+<h4>Directions</h4>
 <ol><li>Boil the chicken in the dressing-sugar-soy mixture for 30 minutes. Also works in the crock pot.</li><li>Serve over rice. Steamed veggies thrown into the mix are a good addition.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
 </article>
-<article class="recipe" id="old-fashioned-white-bread" data-title="old fashioned white bread (bread machine)">
-<h2>Old Fashioned White Bread (Bread Machine)</h2>
+<article class="recipe" id="teriyaki-bowls" data-title="teriyaki bowls">
+<h3 class="rtitle">Teriyaki Bowls</h3>
+<p class="note">Saved from an email (more a method than a recipe)</p>
+<h4>How to make it</h4>
+<ol><li>Prepare 1 package of Aidell&#x27;s pineapple teriyaki chicken meatballs (Costco carries them).</li><li>Steam or roast whatever veggies you like: broccoli, bell peppers, red onion, mushroom, zucchini, green beans...</li><li>Serve over rice with teriyaki sauce. Pineapple on top is great too.</li></ol>
+<p class="top"><a href="#top">Back to top</a></p>
+</article></section>
+<section class="catblock" data-cat><h2 class="cathead">Breads</h2><article class="recipe" id="old-fashioned-white-bread" data-title="old fashioned white bread (bread machine)">
+<h3 class="rtitle">Old Fashioned White Bread (Bread Machine)</h3>
 <p class="note">Transcribed from a bread machine recipe book page saved in an email</p>
-<h3>Ingredients - 1 lb loaf</h3>
+<h4>Ingredients - 1 lb loaf</h4>
 <ul><li>6 fl oz (3/4 c) milk</li><li>1 tbsp butter or margarine</li><li>2 c bread flour</li><li>1 tbsp sugar</li><li>1 tsp salt</li><li>1 1/2 tsp active dry yeast -or- 1 tsp bread machine yeast</li></ul>
-<h3>Ingredients - 1 1/2 lb loaf</h3>
+<h4>Ingredients - 1 1/2 lb loaf</h4>
 <ul><li>9 fl oz (1 c + 2 tbsp) milk</li><li>2 tbsp butter or margarine</li><li>3 c bread flour</li><li>1 1/2 tbsp sugar</li><li>1 1/2 tsp salt</li><li>2 tsp active dry yeast -or- 1 1/2 tsp bread machine yeast</li></ul>
-<h3>Ingredients - 2 lb loaf</h3>
+<h4>Ingredients - 2 lb loaf</h4>
 <ul><li>13 fl oz (1 1/2 c + 2 tbsp) milk</li><li>2 tbsp butter or margarine</li><li>4 c bread flour</li><li>2 tbsp sugar</li><li>1 1/2 tsp salt</li><li>2 1/4 tsp active dry yeast -or- 2 tsp bread machine yeast</li></ul>
-<h3>Directions</h3>
+<h4>Directions</h4>
 <ol><li>Menu selection: Basic or Super Rapid. Add the ingredients to the bread machine pan in the order your machine&#x27;s manual recommends, and run the Basic (or Super Rapid) cycle.</li></ol>
 <p class="top"><a href="#top">Back to top</a></p>
-</article>
+</article></section>
 </div>
 <p class="hidden" id="noresults" style="text-align:center;color:#8a7d6b;">No recipes match that search.</p>
 </div>
@@ -211,6 +204,10 @@ box.addEventListener('input',function(){
     var show=!q||el.getAttribute('data-title').indexOf(q)!==-1;
     el.classList.toggle('hidden',!show);
     if(show&&el.tagName==='LI') any=true;
+  });
+  document.querySelectorAll('[data-cat]').forEach(function(sec){
+    var vis=sec.querySelectorAll('[data-title]:not(.hidden)').length>0;
+    sec.classList.toggle('hidden',!vis);
   });
   document.getElementById('noresults').classList.toggle('hidden',any||!q);
 });

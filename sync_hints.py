@@ -122,6 +122,29 @@ def main():
             day_hints.append(f"{person} - {reason}" + (" (all day)" if allday else ""))
         if day_hints:
             hints[dows[i]] = day_hints
+    # Friday baseline: seed Family Pizza Night for the current week unless removed
+    week_key = monday.isoformat()
+    def _get(path):
+        try:
+            with urllib.request.urlopen(DB + path, timeout=30) as r:
+                return json.loads(r.read() or b'null')
+        except Exception:
+            return None
+    skip = _get('/pizza_skip.json')
+    fri = _get('/week/fri.json') or []
+    has_pizza = any(isinstance(e, dict) and str(e.get('k', '')).startswith('pizza-') for e in fri)
+    if skip == week_key:
+        print('pizza: removed by family this week, not reseeding')
+    elif has_pizza:
+        print('pizza: already on Friday')
+    else:
+        fri.append({'k': 'pizza-' + week_key, 't': 'n', 'label': 'Family Pizza Night'})
+        body2 = json.dumps(fri).encode()
+        req2 = urllib.request.Request(DB + '/week/fri.json', data=body2, method='PUT',
+                                      headers={'Content-Type': 'application/json'})
+        with urllib.request.urlopen(req2, timeout=30) as resp2:
+            resp2.read()
+        print('pizza: seeded Family Pizza Night on Friday')
     body = json.dumps(hints).encode()
     req = urllib.request.Request(DB + '/hints.json', data=body, method='PUT',
                                  headers={'Content-Type': 'application/json'})

@@ -1626,7 +1626,7 @@ function buildWeek(){
   var host=document.getElementById('weekdays');
   var h='';
   DAYS.forEach(function(d){
-    h+='<div class="day" data-day="'+d[0]+'"><h3>'+d[1]+'</h3><ul class="entries"></ul><div class="dayctl"><button data-special="Eating out">+ Eating out</button><button data-special="Eating at a friend\'s house">+ Friend\'s house</button></div></div>';
+    h+='<div class="day" data-day="'+d[0]+'"><h3>'+d[1]+'</h3><ul class="entries"></ul><div class="dayctl"><button data-special="Eating out">+ Eating out</button><button data-special="Eating at a friend\'s house">+ Friend\'s house</button><button data-special="Leftovers">+ Leftovers</button></div></div>';
   });
   host.innerHTML=h;
   host.querySelectorAll('[data-special]').forEach(function(b){

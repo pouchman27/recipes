@@ -1580,6 +1580,7 @@ var DAYS=[['mon','Monday'],['tue','Tuesday'],['wed','Wednesday'],['thu','Thursda
 var week={}; DAYS.forEach(function(d){ week[d[0]]=[]; });
 var lastWeek=''; var lastHints=''; var lastDeleted='';
 function uid(){ return 'e'+Date.now().toString(36)+Math.floor(Math.random()*1e6).toString(36); }
+function mondayKey(){ var d=new Date(); d.setDate(d.getDate()-(d.getDay()+6)%7); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
 function saveDay(d){ dbPut('/week/'+d, week[d].length?week[d]:null).catch(function(){}); nudge(); }
 function moveEntry(fromDay,idx,toDay,toIdx){
   var e=week[fromDay].splice(idx,1)[0]; if(!e) return;
@@ -1621,7 +1622,7 @@ function renderWeek(){
           var m=b.getAttribute('data-mv');
           if(m==='up'&&idx>0){ var t=week[d[0]][idx-1]; week[d[0]][idx-1]=week[d[0]][idx]; week[d[0]][idx]=t; saveDay(d[0]); renderWeek(); }
           else if(m==='down'&&idx<week[d[0]].length-1){ var t2=week[d[0]][idx+1]; week[d[0]][idx+1]=week[d[0]][idx]; week[d[0]][idx]=t2; saveDay(d[0]); renderWeek(); }
-          else if(m==='del'){ week[d[0]].splice(idx,1); saveDay(d[0]); renderWeek(); }
+          else if(m==='del'){ var rm=week[d[0]].splice(idx,1)[0]; if(rm&&rm.k&&String(rm.k).indexOf('pizza-')===0) dbPut('/pizza_skip', mondayKey()).catch(function(){}); saveDay(d[0]); renderWeek(); }
           else if(m==='day'){ openDayPop('Move "'+(week[d[0]][idx]?week[d[0]][idx].label:'')+'" to...',function(target){ moveEntry(d[0],idx,target,week[target].length); }); }
         });
       });
@@ -1632,7 +1633,7 @@ function buildWeek(){
   var host=document.getElementById('weekdays');
   var h='';
   DAYS.forEach(function(d){
-    h+='<div class="day" data-day="'+d[0]+'"><h3>'+d[1]+'</h3><ul class="entries"></ul><div class="dayctl"><button data-special="Eating out">+ Eating out</button><button data-special="Eating at a friend\'s house">+ Friend\'s house</button><button data-special="Leftovers">+ Leftovers</button></div></div>';
+    h+='<div class="day" data-day="'+d[0]+'"><h3>'+d[1]+'</h3><ul class="entries"></ul><div class="dayctl"><button data-special="Eating out">+ Eating out</button><button data-special="Eating at a friend\'s house">+ Friend\'s house</button><button data-special="Leftovers">+ Leftovers</button>'+(d[0]==='fri'?'<button data-pizza="1">+ Pizza night</button>':'')+'</div></div>';
   });
   host.innerHTML=h;
   host.querySelectorAll('[data-special]').forEach(function(b){
@@ -1640,6 +1641,13 @@ function buildWeek(){
       var day=b.closest('.day').getAttribute('data-day');
       week[day].push({k:uid(),t:'n',label:b.getAttribute('data-special')});
       saveDay(day); renderWeek();
+    });
+  });
+  host.querySelectorAll('[data-pizza]').forEach(function(b){
+    b.addEventListener('click',function(){
+      week.fri.push({k:'pizza-'+mondayKey(),t:'n',label:'Family Pizza Night'});
+      dbDel('/pizza_skip').catch(function(){});
+      saveDay('fri'); renderWeek();
     });
   });
   host.querySelectorAll('.day .entries').forEach(function(ul){

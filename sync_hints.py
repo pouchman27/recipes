@@ -132,19 +132,23 @@ def main():
             return None
     skip = _get('/pizza_skip.json')
     fri = _get('/week/fri.json') or []
-    has_pizza = any(isinstance(e, dict) and str(e.get('k', '')).startswith('pizza-') for e in fri)
+    pizza_key = 'pizza-' + week_key
+    current_pizza = any(isinstance(e, dict) and e.get('k') == pizza_key for e in fri)
+    stale_pizza = any(isinstance(e, dict) and str(e.get('k', '')).startswith('pizza-') and e.get('k') != pizza_key for e in fri)
     if skip == week_key:
         print('pizza: removed by family this week, not reseeding')
-    elif has_pizza:
+    elif current_pizza:
         print('pizza: already on Friday')
     else:
-        fri.append({'k': 'pizza-' + week_key, 't': 'n', 'label': 'Family Pizza Night'})
+        # Replace only the prior week's automatic pizza row. Preserve every family-added entry.
+        fri = [e for e in fri if not (isinstance(e, dict) and str(e.get('k', '')).startswith('pizza-'))]
+        fri.insert(0, {'k': pizza_key, 't': 'n', 'label': 'Family Pizza Night'})
         body2 = json.dumps(fri).encode()
         req2 = urllib.request.Request(DB + '/week/fri.json', data=body2, method='PUT',
                                       headers={'Content-Type': 'application/json'})
         with urllib.request.urlopen(req2, timeout=30) as resp2:
             resp2.read()
-        print('pizza: seeded Family Pizza Night on Friday')
+        print('pizza: rolled forward Family Pizza Night' if stale_pizza else 'pizza: seeded Family Pizza Night on Friday')
     body = json.dumps(hints).encode()
     req = urllib.request.Request(DB + '/hints.json', data=body, method='PUT',
                                  headers={'Content-Type': 'application/json'})

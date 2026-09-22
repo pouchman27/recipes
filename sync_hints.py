@@ -73,8 +73,11 @@ def person_for(title, owner):
     return owner or 'Family'
 
 def overlaps_window(ev):
-    s = datetime.fromisoformat(ev['start_time']).astimezone(TZ)
-    e = datetime.fromisoformat(ev['end_time']).astimezone(TZ) if ev.get('end_time') else s
+    # Google can return UTC timestamps with a trailing Z; normalize for older Python runtimes.
+    def parse_iso(value):
+        return datetime.fromisoformat(value.replace('Z', '+00:00')).astimezone(TZ)
+    s = parse_iso(ev['start_time'])
+    e = parse_iso(ev['end_time']) if ev.get('end_time') else s
     ws = s.replace(hour=DINNER_START[0], minute=DINNER_START[1], second=0)
     we = s.replace(hour=DINNER_END[0], minute=DINNER_END[1], second=0)
     return (s < we and e > ws), s, e

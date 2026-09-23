@@ -82,6 +82,8 @@ def overlaps_window(ev):
     we = s.replace(hour=DINNER_END[0], minute=DINNER_END[1], second=0)
     return (s < we and e > ws), s, e
 
+SEARCH_FAILURES = []
+
 def search(cal, account, start, end):
     cmd = ['tools', 'google-calendar', 'search', '--calendar-id', cal,
            '--start-date', start, '--end-date', end, '--limit', '50', '--json']
@@ -90,6 +92,7 @@ def search(cal, account, start, end):
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
     if r.returncode != 0:
         print(f'  search failed for {cal}: {r.stderr.strip()[:120]}', file=sys.stderr)
+        SEARCH_FAILURES.append(cal)
         return []
     return json.loads(r.stdout).get('events', [])
 
@@ -152,6 +155,10 @@ def main():
         with urllib.request.urlopen(req2, timeout=30) as resp2:
             resp2.read()
         print('pizza: rolled forward Family Pizza Night' if stale_pizza else 'pizza: seeded Family Pizza Night on Friday')
+    if SEARCH_FAILURES:
+        # Never publish partial or empty hints when a calendar read failed; keep the live hints.
+        print(f'hints: {len(SEARCH_FAILURES)} calendar search(es) failed, leaving live hints unchanged', file=sys.stderr)
+        sys.exit(1)
     body = json.dumps(hints).encode()
     req = urllib.request.Request(DB + '/hints.json', data=body, method='PUT',
                                  headers={'Content-Type': 'application/json'})

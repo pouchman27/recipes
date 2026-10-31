@@ -85,11 +85,25 @@ def overlaps_window(ev):
 SEARCH_FAILURES = []
 
 def search(cal, account, start, end):
+    import os
+    fp = f"/tmp/calcache/{cal}_{start}.json"
+    if os.path.exists(fp):
+        try:
+            return json.load(open(fp)).get('events', [])
+        except Exception as e:
+            print(f'  cache read failed for {cal} {start}: {e}', file=sys.stderr)
+            SEARCH_FAILURES.append(cal)
+            return []
     cmd = ['tools', 'google-calendar', 'search', '--calendar-id', cal,
            '--start-date', start, '--end-date', end, '--limit', '50', '--json']
     if account:
         cmd += ['--account-id', account]
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    except Exception as e:
+        print(f'  search failed for {cal}: {e}', file=sys.stderr)
+        SEARCH_FAILURES.append(cal)
+        return []
     if r.returncode != 0:
         print(f'  search failed for {cal}: {r.stderr.strip()[:120]}', file=sys.stderr)
         SEARCH_FAILURES.append(cal)

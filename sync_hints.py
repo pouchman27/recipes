@@ -56,6 +56,8 @@ def reason_for(title):
     tl = title.lower()
     if is_xc(title) and 'pasta' not in tl:
         return None  # XC practice doesn't count - back by 6:15
+    if re.search(r'\bitems? pickup\b', tl):
+        return None  # item-pickup availability window, not an absence
     for pat, word in REASON_MAP:
         if re.search(pat, tl):
             return word

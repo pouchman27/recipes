@@ -41,7 +41,7 @@ REASON_MAP = [
     (r'practice', 'practice'),
     (r'recital', 'recital'),
     (r'game\b', 'game'),
-    (r'\b(?:track|swim|gymnastics|wrestling|soccer|basketball|football|volleyball|baseball|softball|tennis|lacrosse|hockey)\s+meet\b', 'game'),
+    (r'\b(?:xc|cross[ -]?country|track|swim|gymnastics|wrestling|soccer|basketball|football|volleyball|baseball|softball|tennis|lacrosse|hockey)\s+meet\b', 'game'),
     (r'work', 'work'),
     (r'party', 'party'),
     (r'dinner', 'dinner'),
@@ -55,8 +55,8 @@ def is_xc(title):
 
 def reason_for(title):
     tl = title.lower()
-    if is_xc(title) and 'pasta' not in tl:
-        return None  # XC practice doesn't count - back by 6:15
+    if is_xc(title) and 'pasta' not in tl and not re.search(r'\bmeet\b', tl):
+        return None  # XC practice doesn't count - back by 6:15; an XC meet is a game
     if re.search(r'\bitems? pickup\b', tl):
         return None  # item-pickup availability window, not an absence
     for pat, word in REASON_MAP:

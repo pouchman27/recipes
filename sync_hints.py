@@ -59,6 +59,8 @@ def reason_for(title):
         return None  # XC practice doesn't count - back by 6:15; an XC meet is a game
     if re.search(r'\bitems? pickup\b', tl):
         return None  # item-pickup availability window, not an absence
+    if re.search(r'\boptional\b', tl):
+        return None  # optional/informational marker, not an attendance commitment
     for pat, word in REASON_MAP:
         if re.search(pat, tl):
             return word

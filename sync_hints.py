@@ -57,6 +57,12 @@ SUPPRESSED_INSTANCES = {
     ('2026-11-24', 'june to dance'),  # Core dance closure
     ('2026-11-25', 'june \U0001f3b9'),         # Hawk piano break (June 16:00)
     ('2026-11-25', 'emmy \U0001f3b9'),         # Hawk piano break (Emmy 19:45)
+    # Personal reminder, not a work shift (confirmed Nov 22); scoped to this instance
+    # only so real work events elsewhere still classify normally.
+    ('2026-11-27', 'tell emmy mistakes i made at work'),
+    # Legacy Cozi recurrence (created 2021, no provider/location); household-verified
+    # Nov 22 as not a current commitment. Emmy's active piano is the Wed Hawk series.
+    ('2026-11-26', 'emmy: piano lesson'),
 }
 
 def is_xc(title):

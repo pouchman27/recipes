@@ -100,9 +100,12 @@ def overlaps_window(ev):
 SEARCH_FAILURES = []
 
 def search(cal, account, start, end):
-    import os
+    import os, time
     fp = f"/tmp/calcache/{cal}_{start}.json"
-    if os.path.exists(fp):
+    if os.path.exists(fp) and time.time() - os.path.getmtime(fp) > 6 * 3600:
+        # Stale cache is worse than no cache: fall through to live search.
+        print(f'  cache file stale (>6h) for {cal} {start}; falling back to live search', file=sys.stderr)
+    elif os.path.exists(fp):
         try:
             return json.load(open(fp)).get('events', [])
         except Exception as e:

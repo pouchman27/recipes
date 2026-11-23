@@ -49,6 +49,16 @@ REASON_MAP = [
     (r'\bto [a-z]', 'out of town'),
 ]
 
+# One-off verified provider-closure exceptions (Thanksgiving week 2026, verified
+# Nov 22 via household): Core dance closed (resumes Nov 30); Hawk piano break
+# Nov 22-28. Exact (date, title) instances only - they expire naturally once the
+# week window moves past Nov 28.
+SUPPRESSED_INSTANCES = {
+    ('2026-11-24', 'june to dance'),  # Core dance closure
+    ('2026-11-25', 'june \U0001f3b9'),         # Hawk piano break (June 16:00)
+    ('2026-11-25', 'emmy \U0001f3b9'),         # Hawk piano break (Emmy 19:45)
+}
+
 def is_xc(title):
     tl = title.lower()
     return bool(re.search(r'\bxc\b|cross country', tl))
@@ -128,6 +138,8 @@ def main():
                 title = (ev.get('summary') or '').strip()
                 if not title or ev.get('status') == 'cancelled':
                     continue
+                if (day.isoformat(), title.lower()) in SUPPRESSED_INSTANCES:
+                    continue  # verified provider closure for this instance
                 reason = reason_for(title)
                 if reason is None:
                     continue
